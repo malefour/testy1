@@ -1,0 +1,451 @@
+import React from 'react';
+import { TrendingUp, Shield, Zap, Globe, BarChart3, Users, DollarSign, Award } from 'lucide-react';
+
+const Investors = () => {
+  return (
+    <div className="pt-16">
+      {/* Header */}
+      <section className="py-20 bg-gradient-to-br from-navy-50 to-teal-50">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h1 className="font-inter font-bold text-5xl text-navy-900 mb-6">
+            Investor Overview
+          </h1>
+          <p className="font-roboto text-xl text-gray-600 leading-relaxed">
+            Revolutionizing the $85B global ticketing industry with blockchain technology and transparent pricing.
+          </p>
+        </div>
+      </section>
+
+      {/* Market Opportunity */}
+      <section className="py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="font-inter font-bold text-4xl text-navy-900 mb-4">
+              Massive Market Opportunity
+            </h2>
+            <p className="font-roboto text-xl text-gray-600 max-w-3xl mx-auto">
+              The global ticketing market is ripe for disruption, with clear pain points and massive inefficiencies.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-4 gap-8 mb-16">
+            <div className="text-center">
+              <div className="w-20 h-20 bg-teal-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                <DollarSign className="h-10 w-10 text-teal-600" />
+              </div>
+              <div className="text-3xl font-bold text-navy-900 mb-2">$85B</div>
+              <p className="font-roboto text-gray-600">Global Ticketing Market</p>
+            </div>
+
+            <div className="text-center">
+              <div className="w-20 h-20 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                <TrendingUp className="h-10 w-10 text-red-600" />
+              </div>
+              <div className="text-3xl font-bold text-navy-900 mb-2">$15B</div>
+              <p className="font-roboto text-gray-600">Lost to Scalping Annually</p>
+            </div>
+
+            <div className="text-center">
+              <div className="w-20 h-20 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                <Users className="h-10 w-10 text-purple-600" />
+              </div>
+              <div className="text-3xl font-bold text-navy-900 mb-2">2.8B</div>
+              <p className="font-roboto text-gray-600">Event Tickets Sold Yearly</p>
+            </div>
+
+            <div className="text-center">
+              <div className="w-20 h-20 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                <Globe className="h-10 w-10 text-blue-600" />
+              </div>
+              <div className="text-3xl font-bold text-navy-900 mb-2">12%</div>
+              <p className="font-roboto text-gray-600">Annual Market Growth</p>
+            </div>
+          </div>
+
+          <div className="bg-gray-50 p-8 rounded-2xl">
+            <h3 className="font-inter font-semibold text-2xl text-navy-900 mb-6 text-center">Market Problems We Solve</h3>
+            <div className="grid md:grid-cols-3 gap-8">
+              <div className="text-center">
+                <div className="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <span className="text-2xl">🤖</span>
+                </div>
+                <h4 className="font-inter font-semibold text-lg text-navy-900 mb-2">Bot Scalping</h4>
+                <p className="font-roboto text-gray-600 text-sm">
+                  Automated purchasing inflates prices 10x+ and locks out real fans
+                </p>
+              </div>
+
+              <div className="text-center">
+                <div className="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <span className="text-2xl">🎭</span>
+                </div>
+                <h4 className="font-inter font-semibold text-lg text-navy-900 mb-2">Counterfeit Tickets</h4>
+                <p className="font-roboto text-gray-600 text-sm">
+                  $1B+ lost annually to fake tickets and fraud
+                </p>
+              </div>
+
+              <div className="text-center">
+                <div className="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <span className="text-2xl">💸</span>
+                </div>
+                <h4 className="font-inter font-semibold text-lg text-navy-900 mb-2">Hidden Fees</h4>
+                <p className="font-roboto text-gray-600 text-sm">
+                  Opaque pricing with fees that can double ticket costs
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Technology Advantage */}
+      <section className="py-20 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="font-inter font-bold text-4xl text-navy-900 mb-4">
+              Technology Competitive Advantage
+            </h2>
+            <p className="font-roboto text-xl text-gray-600 max-w-3xl mx-auto">
+              Built on Solana for unmatched speed, cost efficiency, and scalability.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-8 mb-16">
+            <div className="bg-white p-8 rounded-xl shadow-sm border border-gray-200">
+              <div className="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mb-6">
+                <Zap className="h-6 w-6 text-purple-600" />
+              </div>
+              <h3 className="font-inter font-semibold text-xl text-navy-900 mb-3">Solana Performance</h3>
+              <ul className="space-y-2 font-roboto text-gray-600 text-sm">
+                <li>• 400ms block times</li>
+                <li>• 65,000 TPS capacity</li>
+                <li>• Sub-$0.01 transaction fees</li>
+                <li>• No network congestion</li>
+              </ul>
+            </div>
+
+            <div className="bg-white p-8 rounded-xl shadow-sm border border-gray-200">
+              <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mb-6">
+                <Shield className="h-6 w-6 text-green-600" />
+              </div>
+              <h3 className="font-inter font-semibold text-xl text-navy-900 mb-3">Smart Contract Security</h3>
+              <ul className="space-y-2 font-roboto text-gray-600 text-sm">
+                <li>• Multi-signature security</li>
+                <li>• Audited by leading firms</li>
+                <li>• Immutable anti-scalping rules</li>
+                <li>• Transparent pricing logic</li>
+              </ul>
+            </div>
+
+            <div className="bg-white p-8 rounded-xl shadow-sm border border-gray-200">
+              <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-6">
+                <BarChart3 className="h-6 w-6 text-blue-600" />
+              </div>
+              <h3 className="font-inter font-semibold text-xl text-navy-900 mb-3">Enterprise SaaS</h3>
+              <ul className="space-y-2 font-roboto text-gray-600 text-sm">
+                <li>• Real-time analytics</li>
+                <li>• API-first architecture</li>
+                <li>• White-label solutions</li>
+                <li>• SOC 2 compliance</li>
+              </ul>
+            </div>
+          </div>
+
+          <div className="bg-navy-800 p-8 rounded-2xl text-white">
+            <div className="grid md:grid-cols-2 gap-8 items-center">
+              <div>
+                <h3 className="font-inter font-bold text-2xl mb-4">Why Solana?</h3>
+                <p className="font-roboto text-gray-300 mb-6">
+                  We evaluated Ethereum, Polygon, and other chains. Solana's performance and cost structure make it the only viable option for mass-market ticketing.
+                </p>
+                <div className="space-y-3">
+                  <div className="flex justify-between">
+                    <span className="font-roboto text-gray-300">Transaction Speed</span>
+                    <span className="font-roboto font-medium">400ms vs 15s (Ethereum)</span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span className="font-roboto text-gray-300">Transaction Cost</span>
+                    <span className="font-roboto font-medium">$0.00025 vs $15+ (Ethereum)</span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span className="font-roboto text-gray-300">Throughput</span>
+                    <span className="font-roboto font-medium">65,000 TPS vs 15 TPS</span>
+                  </div>
+                </div>
+              </div>
+              <div className="bg-navy-700 p-6 rounded-xl">
+                <h4 className="font-inter font-semibold text-lg mb-4">Ecosystem Benefits</h4>
+                <ul className="space-y-2 font-roboto text-gray-300 text-sm">
+                  <li>• Growing developer ecosystem</li>
+                  <li>• Mobile wallet adoption</li>
+                  <li>• DeFi integration opportunities</li>
+                  <li>• Institutional backing (FTX, Jump)</li>
+                  <li>• Energy efficient (Proof of Stake)</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Business Model */}
+      <section className="py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="font-inter font-bold text-4xl text-navy-900 mb-4">
+              Scalable Business Model
+            </h2>
+            <p className="font-roboto text-xl text-gray-600 max-w-3xl mx-auto">
+              Multiple revenue streams with high margins and network effects.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-12 mb-16">
+            <div>
+              <h3 className="font-inter font-semibold text-2xl text-navy-900 mb-6">Revenue Streams</h3>
+              <div className="space-y-4">
+                <div className="flex items-start">
+                  <div className="w-8 h-8 bg-teal-100 rounded-full flex items-center justify-center mr-4 mt-1">
+                    <span className="text-teal-600 font-bold text-sm">1</span>
+                  </div>
+                  <div>
+                    <h4 className="font-roboto font-medium text-navy-900">Transaction Fees</h4>
+                    <p className="font-roboto text-gray-600 text-sm">2-2.5% per ticket sale (vs 3-5% traditional)</p>
+                  </div>
+                </div>
+
+                <div className="flex items-start">
+                  <div className="w-8 h-8 bg-teal-100 rounded-full flex items-center justify-center mr-4 mt-1">
+                    <span className="text-teal-600 font-bold text-sm">2</span>
+                  </div>
+                  <div>
+                    <h4 className="font-roboto font-medium text-navy-900">Secondary Market</h4>
+                    <p className="font-roboto text-gray-600 text-sm">Revenue share from controlled resales</p>
+                  </div>
+                </div>
+
+                <div className="flex items-start">
+                  <div className="w-8 h-8 bg-teal-100 rounded-full flex items-center justify-center mr-4 mt-1">
+                    <span className="text-teal-600 font-bold text-sm">3</span>
+                  </div>
+                  <div>
+                    <h4 className="font-roboto font-medium text-navy-900">SaaS Subscriptions</h4>
+                    <p className="font-roboto text-gray-600 text-sm">Enterprise features and white-label solutions</p>
+                  </div>
+                </div>
+
+                <div className="flex items-start">
+                  <div className="w-8 h-8 bg-teal-100 rounded-full flex items-center justify-center mr-4 mt-1">
+                    <span className="text-teal-600 font-bold text-sm">4</span>
+                  </div>
+                  <div>
+                    <h4 className="font-roboto font-medium text-navy-900">NFT Marketplace</h4>
+                    <p className="font-roboto text-gray-600 text-sm">Collectible trading and artist collaborations</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <h3 className="font-inter font-semibold text-2xl text-navy-900 mb-6">Unit Economics</h3>
+              <div className="bg-gray-50 p-6 rounded-xl">
+                <div className="space-y-4">
+                  <div className="flex justify-between">
+                    <span className="font-roboto text-gray-700">Average Ticket Price</span>
+                    <span className="font-roboto font-medium text-navy-900">$75</span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span className="font-roboto text-gray-700">Our Fee (2.5%)</span>
+                    <span className="font-roboto font-medium text-navy-900">$1.88</span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span className="font-roboto text-gray-700">Processing Costs</span>
+                    <span className="font-roboto font-medium text-red-600">-$0.35</span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span className="font-roboto text-gray-700">Blockchain Fees</span>
+                    <span className="font-roboto font-medium text-red-600">-$0.01</span>
+                  </div>
+                  <hr className="border-gray-300" />
+                  <div className="flex justify-between">
+                    <span className="font-roboto font-medium text-gray-900">Gross Profit per Ticket</span>
+                    <span className="font-roboto font-bold text-teal-600">$1.52</span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span className="font-roboto text-gray-700">Gross Margin</span>
+                    <span className="font-roboto font-bold text-teal-600">81%</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div className="bg-teal-50 p-8 rounded-2xl">
+            <h3 className="font-inter font-semibold text-2xl text-navy-900 mb-6 text-center">5-Year Financial Projections</h3>
+            <div className="grid md:grid-cols-5 gap-6">
+              <div className="text-center">
+                <div className="text-sm font-roboto text-gray-600 mb-2">Year 1</div>
+                <div className="text-2xl font-bold text-navy-900">$2.5M</div>
+                <div className="text-sm font-roboto text-gray-600">Revenue</div>
+              </div>
+              <div className="text-center">
+                <div className="text-sm font-roboto text-gray-600 mb-2">Year 2</div>
+                <div className="text-2xl font-bold text-navy-900">$12M</div>
+                <div className="text-sm font-roboto text-gray-600">Revenue</div>
+              </div>
+              <div className="text-center">
+                <div className="text-sm font-roboto text-gray-600 mb-2">Year 3</div>
+                <div className="text-2xl font-bold text-navy-900">$45M</div>
+                <div className="text-sm font-roboto text-gray-600">Revenue</div>
+              </div>
+              <div className="text-center">
+                <div className="text-sm font-roboto text-gray-600 mb-2">Year 4</div>
+                <div className="text-2xl font-bold text-navy-900">$125M</div>
+                <div className="text-sm font-roboto text-gray-600">Revenue</div>
+              </div>
+              <div className="text-center">
+                <div className="text-sm font-roboto text-gray-600 mb-2">Year 5</div>
+                <div className="text-2xl font-bold text-navy-900">$280M</div>
+                <div className="text-sm font-roboto text-gray-600">Revenue</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Team & Traction */}
+      <section className="py-20 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid md:grid-cols-2 gap-16">
+            <div>
+              <h2 className="font-inter font-bold text-4xl text-navy-900 mb-8">
+                Experienced Team
+              </h2>
+              
+              <div className="space-y-6">
+                <div className="flex items-start">
+                  <div className="w-16 h-16 bg-teal-600 rounded-full flex items-center justify-center mr-4">
+                    <span className="text-white font-bold">JS</span>
+                  </div>
+                  <div>
+                    <h3 className="font-inter font-semibold text-lg text-navy-900">John Smith, CEO</h3>
+                    <p className="font-roboto text-gray-600 text-sm mb-2">Former VP Engineering at Ticketmaster, 15 years ticketing industry</p>
+                    <p className="font-roboto text-gray-500 text-xs">Stanford CS, led team that processed $2B+ in ticket sales</p>
+                  </div>
+                </div>
+
+                <div className="flex items-start">
+                  <div className="w-16 h-16 bg-navy-800 rounded-full flex items-center justify-center mr-4">
+                    <span className="text-white font-bold">MJ</span>
+                  </div>
+                  <div>
+                    <h3 className="font-inter font-semibold text-lg text-navy-900">Maria Johnson, CTO</h3>
+                    <p className="font-roboto text-gray-600 text-sm mb-2">Former Principal Engineer at Solana Labs, blockchain expert</p>
+                    <p className="font-roboto text-gray-500 text-xs">MIT, contributed to Solana core protocol, 10+ years distributed systems</p>
+                  </div>
+                </div>
+
+                <div className="flex items-start">
+                  <div className="w-16 h-16 bg-purple-600 rounded-full flex items-center justify-center mr-4">
+                    <span className="text-white font-bold">DL</span>
+                  </div>
+                  <div>
+                    <h3 className="font-inter font-semibold text-lg text-navy-900">David Lee, Head of Business</h3>
+                    <p className="font-roboto text-gray-600 text-sm mb-2">Former Director at Live Nation, deep industry relationships</p>
+                    <p className="font-roboto text-gray-500 text-xs">Wharton MBA, managed $500M+ in venue partnerships</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <h2 className="font-inter font-bold text-4xl text-navy-900 mb-8">
+                Early Traction
+              </h2>
+
+              <div className="space-y-6">
+                <div className="bg-white p-6 rounded-xl shadow-sm">
+                  <div className="flex items-center justify-between mb-4">
+                    <h3 className="font-inter font-semibold text-lg text-navy-900">Pilot Programs</h3>
+                    <Award className="h-6 w-6 text-teal-600" />
+                  </div>
+                  <ul className="space-y-2 font-roboto text-gray-600 text-sm">
+                    <li>• 5 venues signed for Q1 2024 pilots</li>
+                    <li>• 25,000 tickets processed successfully</li>
+                    <li>• 0% scalping rate achieved</li>
+                    <li>• 94% customer satisfaction</li>
+                  </ul>
+                </div>
+
+                <div className="bg-white p-6 rounded-xl shadow-sm">
+                  <div className="flex items-center justify-between mb-4">
+                    <h3 className="font-inter font-semibold text-lg text-navy-900">Partnerships</h3>
+                    <Users className="h-6 w-6 text-teal-600" />
+                  </div>
+                  <ul className="space-y-2 font-roboto text-gray-600 text-sm">
+                    <li>• LOI with major venue management company</li>
+                    <li>• Integration partnership with Solana Pay</li>
+                    <li>• Artist management firm collaboration</li>
+                    <li>• Security audit by Trail of Bits</li>
+                  </ul>
+                </div>
+
+                <div className="bg-white p-6 rounded-xl shadow-sm">
+                  <div className="flex items-center justify-between mb-4">
+                    <h3 className="font-inter font-semibold text-lg text-navy-900">Funding</h3>
+                    <DollarSign className="h-6 w-6 text-teal-600" />
+                  </div>
+                  <ul className="space-y-2 font-roboto text-gray-600 text-sm">
+                    <li>• $2M pre-seed completed</li>
+                    <li>• Raising $8M Series A</li>
+                    <li>• Interest from tier-1 VCs</li>
+                    <li>• Strategic investors in pipeline</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Investment Opportunity */}
+      <section className="py-20 bg-navy-800 text-white">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h2 className="font-inter font-bold text-4xl mb-6">
+            Investment Opportunity
+          </h2>
+          <p className="font-roboto text-xl text-gray-300 mb-8">
+            Join us in revolutionizing the ticketing industry with transparent, fair, and fraud-proof technology.
+          </p>
+          
+          <div className="grid md:grid-cols-3 gap-8 mb-12">
+            <div>
+              <div className="text-3xl font-bold text-teal-400 mb-2">$8M</div>
+              <p className="font-roboto text-gray-300">Series A Round</p>
+            </div>
+            <div>
+              <div className="text-3xl font-bold text-teal-400 mb-2">18 months</div>
+              <p className="font-roboto text-gray-300">Runway</p>
+            </div>
+            <div>
+              <div className="text-3xl font-bold text-teal-400 mb-2">$50M</div>
+              <p className="font-roboto text-gray-300">Pre-money Valuation</p>
+            </div>
+          </div>
+
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <button className="bg-teal-600 hover:bg-teal-700 text-white px-8 py-4 rounded-lg font-roboto font-medium text-lg transition-all transform hover:scale-105">
+              Request Pitch Deck
+            </button>
+            <button className="border-2 border-white text-white hover:bg-white hover:text-navy-800 px-8 py-4 rounded-lg font-roboto font-medium text-lg transition-all transform hover:scale-105">
+              Schedule Meeting
+            </button>
+          </div>
+        </div>
+      </section>
+    </div>
+  );
+};
+
+export default Investors;
