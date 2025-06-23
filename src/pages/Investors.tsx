@@ -1,7 +1,96 @@
 import React from 'react';
 import { TrendingUp, Shield, Zap, Globe, BarChart3, Users, DollarSign, Award } from 'lucide-react';
+import { Timeline } from '../components/ui/timeline';
 
 const Investors = () => {
+  const timelineData = [
+    {
+      title: "Q4 2024",
+      content: (
+        <div>
+          <p className="text-neutral-800 dark:text-neutral-200 text-xs md:text-sm font-normal mb-8">
+            Series A funding round and major venue partnerships
+          </p>
+          <div className="grid grid-cols-2 gap-4">
+            <div className="bg-gradient-to-br from-teal-50 to-navy-50 p-4 rounded-lg">
+              <DollarSign className="h-6 w-6 text-teal-600 mb-2" />
+              <h4 className="font-semibold text-navy-900 mb-1 text-sm">$8M Series A</h4>
+              <p className="text-xs text-gray-600">Funding secured</p>
+            </div>
+            <div className="bg-gradient-to-br from-purple-50 to-navy-50 p-4 rounded-lg">
+              <Users className="h-6 w-6 text-purple-600 mb-2" />
+              <h4 className="font-semibold text-navy-900 mb-1 text-sm">25+ Venues</h4>
+              <p className="text-xs text-gray-600">Partnerships signed</p>
+            </div>
+          </div>
+        </div>
+      ),
+    },
+    {
+      title: "Q3 2024",
+      content: (
+        <div>
+          <p className="text-neutral-800 dark:text-neutral-200 text-xs md:text-sm font-normal mb-8">
+            Platform launch and initial market validation
+          </p>
+          <div className="space-y-3">
+            <div className="flex items-center gap-2">
+              <div className="w-2 h-2 bg-teal-500 rounded-full"></div>
+              <span className="text-sm text-gray-700">25,000 tickets processed</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <div className="w-2 h-2 bg-teal-500 rounded-full"></div>
+              <span className="text-sm text-gray-700">0% scalping rate achieved</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <div className="w-2 h-2 bg-teal-500 rounded-full"></div>
+              <span className="text-sm text-gray-700">94% customer satisfaction</span>
+            </div>
+          </div>
+        </div>
+      ),
+    },
+    {
+      title: "Q2 2024",
+      content: (
+        <div>
+          <p className="text-neutral-800 dark:text-neutral-200 text-xs md:text-sm font-normal mb-8">
+            Pilot program launch and technology validation
+          </p>
+          <div className="bg-gradient-to-r from-navy-50 to-teal-50 p-4 rounded-lg">
+            <Shield className="h-6 w-6 text-navy-600 mb-2" />
+            <h4 className="font-semibold text-navy-900 mb-1 text-sm">Security Audit</h4>
+            <p className="text-xs text-gray-600">
+              Trail of Bits audit completed, smart contracts deployed
+            </p>
+          </div>
+        </div>
+      ),
+    },
+    {
+      title: "Q1 2024",
+      content: (
+        <div>
+          <p className="text-neutral-800 dark:text-neutral-200 text-xs md:text-sm font-normal mb-8">
+            Core development and initial partnerships
+          </p>
+          <div className="grid grid-cols-2 gap-4">
+            <div className="bg-gradient-to-br from-blue-50 to-navy-50 p-4 rounded-lg">
+              <Zap className="h-6 w-6 text-blue-600 mb-2" />
+              <h4 className="font-semibold text-navy-900 mb-1 text-sm">Solana Integration</h4>
+              <p className="text-xs text-gray-600">Core platform built</p>
+            </div>
+            <div className="bg-gradient-to-br from-green-50 to-navy-50 p-4 rounded-lg">
+              <Award className="h-6 w-6 text-green-600 mb-2" />
+              <h4 className="font-semibold text-navy-900 mb-1 text-sm">5 Pilot Venues</h4>
+              <p className="text-xs text-gray-600">Initial partnerships</p>
+            </div>
+          </div>
+        </div>
+      ),
+    },
+  ];
+
   return (
     <div className="pt-16">
       {/* Header */}
@@ -280,132 +369,13 @@ const Investors = () => {
               </div>
             </div>
           </div>
-
-          <div className="bg-teal-50 p-8 rounded-2xl">
-            <h3 className="font-inter font-semibold text-2xl text-navy-900 mb-6 text-center">5-Year Financial Projections</h3>
-            <div className="grid md:grid-cols-5 gap-6">
-              <div className="text-center">
-                <div className="text-sm font-roboto text-gray-600 mb-2">Year 1</div>
-                <div className="text-2xl font-bold text-navy-900">$2.5M</div>
-                <div className="text-sm font-roboto text-gray-600">Revenue</div>
-              </div>
-              <div className="text-center">
-                <div className="text-sm font-roboto text-gray-600 mb-2">Year 2</div>
-                <div className="text-2xl font-bold text-navy-900">$12M</div>
-                <div className="text-sm font-roboto text-gray-600">Revenue</div>
-              </div>
-              <div className="text-center">
-                <div className="text-sm font-roboto text-gray-600 mb-2">Year 3</div>
-                <div className="text-2xl font-bold text-navy-900">$45M</div>
-                <div className="text-sm font-roboto text-gray-600">Revenue</div>
-              </div>
-              <div className="text-center">
-                <div className="text-sm font-roboto text-gray-600 mb-2">Year 4</div>
-                <div className="text-2xl font-bold text-navy-900">$125M</div>
-                <div className="text-sm font-roboto text-gray-600">Revenue</div>
-              </div>
-              <div className="text-center">
-                <div className="text-sm font-roboto text-gray-600 mb-2">Year 5</div>
-                <div className="text-2xl font-bold text-navy-900">$280M</div>
-                <div className="text-sm font-roboto text-gray-600">Revenue</div>
-              </div>
-            </div>
-          </div>
         </div>
       </section>
 
-      {/* Team & Traction */}
+      {/* Timeline Section */}
       <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid md:grid-cols-2 gap-16">
-            <div>
-              <h2 className="font-inter font-bold text-4xl text-navy-900 mb-8">
-                Experienced Team
-              </h2>
-              
-              <div className="space-y-6">
-                <div className="flex items-start">
-                  <div className="w-16 h-16 bg-teal-600 rounded-full flex items-center justify-center mr-4">
-                    <span className="text-white font-bold">JS</span>
-                  </div>
-                  <div>
-                    <h3 className="font-inter font-semibold text-lg text-navy-900">John Smith, CEO</h3>
-                    <p className="font-roboto text-gray-600 text-sm mb-2">Former VP Engineering at Ticketmaster, 15 years ticketing industry</p>
-                    <p className="font-roboto text-gray-500 text-xs">Stanford CS, led team that processed $2B+ in ticket sales</p>
-                  </div>
-                </div>
-
-                <div className="flex items-start">
-                  <div className="w-16 h-16 bg-navy-800 rounded-full flex items-center justify-center mr-4">
-                    <span className="text-white font-bold">MJ</span>
-                  </div>
-                  <div>
-                    <h3 className="font-inter font-semibold text-lg text-navy-900">Maria Johnson, CTO</h3>
-                    <p className="font-roboto text-gray-600 text-sm mb-2">Former Principal Engineer at Solana Labs, blockchain expert</p>
-                    <p className="font-roboto text-gray-500 text-xs">MIT, contributed to Solana core protocol, 10+ years distributed systems</p>
-                  </div>
-                </div>
-
-                <div className="flex items-start">
-                  <div className="w-16 h-16 bg-purple-600 rounded-full flex items-center justify-center mr-4">
-                    <span className="text-white font-bold">DL</span>
-                  </div>
-                  <div>
-                    <h3 className="font-inter font-semibold text-lg text-navy-900">David Lee, Head of Business</h3>
-                    <p className="font-roboto text-gray-600 text-sm mb-2">Former Director at Live Nation, deep industry relationships</p>
-                    <p className="font-roboto text-gray-500 text-xs">Wharton MBA, managed $500M+ in venue partnerships</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div>
-              <h2 className="font-inter font-bold text-4xl text-navy-900 mb-8">
-                Early Traction
-              </h2>
-
-              <div className="space-y-6">
-                <div className="bg-white p-6 rounded-xl shadow-sm">
-                  <div className="flex items-center justify-between mb-4">
-                    <h3 className="font-inter font-semibold text-lg text-navy-900">Pilot Programs</h3>
-                    <Award className="h-6 w-6 text-teal-600" />
-                  </div>
-                  <ul className="space-y-2 font-roboto text-gray-600 text-sm">
-                    <li>• 5 venues signed for Q1 2024 pilots</li>
-                    <li>• 25,000 tickets processed successfully</li>
-                    <li>• 0% scalping rate achieved</li>
-                    <li>• 94% customer satisfaction</li>
-                  </ul>
-                </div>
-
-                <div className="bg-white p-6 rounded-xl shadow-sm">
-                  <div className="flex items-center justify-between mb-4">
-                    <h3 className="font-inter font-semibold text-lg text-navy-900">Partnerships</h3>
-                    <Users className="h-6 w-6 text-teal-600" />
-                  </div>
-                  <ul className="space-y-2 font-roboto text-gray-600 text-sm">
-                    <li>• LOI with major venue management company</li>
-                    <li>• Integration partnership with Solana Pay</li>
-                    <li>• Artist management firm collaboration</li>
-                    <li>• Security audit by Trail of Bits</li>
-                  </ul>
-                </div>
-
-                <div className="bg-white p-6 rounded-xl shadow-sm">
-                  <div className="flex items-center justify-between mb-4">
-                    <h3 className="font-inter font-semibold text-lg text-navy-900">Funding</h3>
-                    <DollarSign className="h-6 w-6 text-teal-600" />
-                  </div>
-                  <ul className="space-y-2 font-roboto text-gray-600 text-sm">
-                    <li>• $2M pre-seed completed</li>
-                    <li>• Raising $8M Series A</li>
-                    <li>• Interest from tier-1 VCs</li>
-                    <li>• Strategic investors in pipeline</li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </div>
+          <Timeline data={timelineData} />
         </div>
       </section>
 

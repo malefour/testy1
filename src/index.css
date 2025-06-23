@@ -2,52 +2,170 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer utilities {
-  .hover\:scale-102:hover {
-    transform: scale(1.02);
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+    --primary: 222.2 47.4% 11.2%;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 222.2 84% 4.9%;
+    --radius: 0.5rem;
   }
-  
-  .hover\:scale-105:hover {
-    transform: scale(1.05);
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9%;
   }
-  
-  .hover\:scale-110:hover {
-    transform: scale(1.1);
+}
+
+@layer base {
+  * {
+    border-color: hsl(var(--border));
+  }
+  body {
+    background-color: hsl(var(--background));
+    color: hsl(var(--foreground));
+  }
+
+  section {
+    background-color: hsl(var(--background));
   }
 }
 
-/* Smooth scrolling */
-html {
-  scroll-behavior: smooth;
+/* Dark mode overrides without @apply */
+.dark body {
+  background-color: #09090b; /* bg-zinc-950 */
 }
 
-/* Custom scrollbar */
-::-webkit-scrollbar {
-  width: 6px;
+.dark section {
+  background-color: #09090b; /* bg-zinc-950 */
 }
 
-::-webkit-scrollbar-track {
-  background: #f1f5f9;
+.dark section.bg-gradient-to-br,
+.dark section.bg-gradient-to-r {
+  background-image: linear-gradient(to bottom right, hsl(var(--secondary)), #0c1a2b);
 }
 
-::-webkit-scrollbar-thumb {
-  background: #cbd5e1;
-  border-radius: 3px;
+.dark .bg-white { background-color: #09090b; } /* bg-zinc-950 */
+.dark .bg-gray-50 { background-color: #18181b; } /* bg-zinc-900 */
+.dark .bg-gray-100 { background-color: #27272a; } /* bg-zinc-800 */
+
+.dark .text-gray-500 { color: #a1a1aa; } /* text-zinc-400 */
+.dark .text-gray-600 { color: #d4d4d8; } /* text-zinc-300 */
+.dark .text-gray-700 { color: #e4e4e7; } /* text-zinc-200 */
+.dark .text-gray-800 { color: #f4f4f5; } /* text-zinc-100 */
+.dark .text-gray-900 { color: #fafafa; } /* text-zinc-50 */
+
+.dark .text-navy-800 { color: #e4e4e7; } /* text-zinc-200 */
+.dark .text-navy-900 { color: #fafafa; } /* text-zinc-50 */
+
+.dark .border-gray-200 { border-color: #27272a; } /* border-zinc-800 */
+.dark .border-gray-300 { border-color: #3f3f46; } /* border-zinc-700 */
+
+.dark .divide-gray-200 > :not([hidden]) ~ :not([hidden]) {
+  border-color: #3f3f46; /* border-zinc-700 */
 }
 
-::-webkit-scrollbar-thumb:hover {
-  background: #94a3b8;
+.dark .shadow-soft,
+.dark .shadow-soft-lg,
+.dark .shadow-lg,
+.dark .shadow-xl {
+  box-shadow: none;
 }
 
-/* Focus styles */
-button:focus,
-a:focus {
-  outline: 2px solid #25C2A0;
-  outline-offset: 2px;
+.dark .bg-red-50 { background-color: rgba(153, 27, 27, 0.1); }
+.dark .bg-teal-50 { background-color: rgba(13, 148, 136, 0.1); }
+.dark .bg-purple-50 { background-color: rgba(126, 34, 206, 0.1); }
+.dark .bg-blue-50 { background-color: rgba(37, 99, 235, 0.1); }
+.dark .bg-green-50 { background-color: rgba(22, 163, 74, 0.1); }
+
+.dark .bg-red-100,
+.dark .bg-teal-100,
+.dark .bg-purple-100,
+.dark .bg-blue-100,
+.dark .bg-green-100,
+.dark .bg-navy-100 {
+  background-color: #27272a; /* bg-zinc-800 */
 }
 
-/* Selection styles */
-::selection {
-  background-color: #25C2A0;
-  color: white;
+.dark .bg-navy-700 { background-color: #27272a; } /* bg-zinc-800 */
+.dark .bg-navy-800 { background-color: #18181b; } /* bg-zinc-900 */
+
+.dark .from-navy-50.to-purple-50 {
+  background-image: linear-gradient(to bottom right, #18181b, #09090b);
+}
+
+.dark .from-teal-600.to-navy-800 {
+  --tw-gradient-from: #0f766e var(--tw-gradient-from-position);
+  --tw-gradient-to: #1e293b var(--tw-gradient-to-position);
+}
+
+.dark .hover\:bg-white:hover {
+  background-color: #27272a; /* bg-zinc-800 */
+}
+
+.dark .hover\:text-navy-800:hover {
+  color: #fafafa; /* text-zinc-50 */
+}
+
+.dark .from-navy-50,
+.dark .from-teal-50,
+.dark .from-purple-50,
+.dark .from-blue-50,
+.dark .from-green-50,
+.dark .from-red-50 {
+  --tw-gradient-from: #1f2937 var(--tw-gradient-from-position);
+  --tw-gradient-to: rgb(31 41 55 / 0) var(--tw-gradient-to-position);
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
+}
+
+.dark .to-navy-50,
+.dark .to-teal-50,
+.dark .to-purple-50,
+.dark .to-blue-50,
+.dark .to-green-50,
+.dark .to-red-50 {
+  --tw-gradient-to: #111827 var(--tw-gradient-to-position);
+}
+
+/* This is a simple fix for the pricing table dividers */
+.dark .divide-y > :not([hidden]) ~ :not([hidden]) {
+    border-top-color: hsl(var(--border));
+    border-bottom-color: hsl(var(--border));
+}
+
+/* Ensure timeline connector lines are visible in dark mode */
+.dark .dark\:after\:bg-gray-700:after {
+    background-color: #3f3f46; /* bg-zinc-700 */
 }

@@ -1,6 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Navbar from './components/Navbar';
+import { ThemeProvider } from './contexts/ThemeContext';
+import NewNavbar from './components/NewNavbar';
 import Footer from './components/Footer';
 import Home from './pages/Home';
 import HowItWorks from './pages/HowItWorks';
@@ -12,29 +13,35 @@ import Investors from './pages/Investors';
 import FAQ from './pages/FAQ';
 import Blog from './pages/Blog';
 import Contact from './pages/Contact';
+import HeroDemo from './pages/HeroDemo';
+import TimelineDemo from './pages/TimelineDemo';
 
 function App() {
   return (
-    <Router>
-      <div className="min-h-screen bg-white">
-        <Navbar />
-        <main>
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/how-it-works" element={<HowItWorks />} />
-            <Route path="/for-organizers" element={<ForOrganizers />} />
-            <Route path="/for-fans" element={<ForFans />} />
-            <Route path="/pricing" element={<Pricing />} />
-            <Route path="/collectibles" element={<Collectibles />} />
-            <Route path="/investors" element={<Investors />} />
-            <Route path="/faq" element={<FAQ />} />
-            <Route path="/blog" element={<Blog />} />
-            <Route path="/contact" element={<Contact />} />
-          </Routes>
-        </main>
-        <Footer />
-      </div>
-    </Router>
+    <ThemeProvider>
+      <Router>
+        <div className="min-h-screen bg-background transition-colors duration-300">
+          <NewNavbar />
+          <main>
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/how-it-works" element={<HowItWorks />} />
+              <Route path="/for-organizers" element={<ForOrganizers />} />
+              <Route path="/for-fans" element={<ForFans />} />
+              <Route path="/pricing" element={<Pricing />} />
+              <Route path="/collectibles" element={<Collectibles />} />
+              <Route path="/investors" element={<Investors />} />
+              <Route path="/faq" element={<FAQ />} />
+              <Route path="/blog" element={<Blog />} />
+              <Route path="/contact" element={<Contact />} />
+              <Route path="/hero-demo" element={<HeroDemo />} />
+              <Route path="/timeline-demo" element={<TimelineDemo />} />
+            </Routes>
+          </main>
+          <Footer />
+        </div>
+      </Router>
+    </ThemeProvider>
   );
 }
 
