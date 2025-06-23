@@ -14,7 +14,6 @@ import FAQ from './pages/FAQ';
 import Blog from './pages/Blog';
 import Contact from './pages/Contact';
 import HeroDemo from './pages/HeroDemo';
-import TimelineDemo from './pages/TimelineDemo';
 
 function App() {
   return (
@@ -35,7 +34,6 @@ function App() {
               <Route path="/blog" element={<Blog />} />
               <Route path="/contact" element={<Contact />} />
               <Route path="/hero-demo" element={<HeroDemo />} />
-              <Route path="/timeline-demo" element={<TimelineDemo />} />
             </Routes>
           </main>
           <Footer />
