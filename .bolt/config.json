@@ -1,3 +1,13 @@
 {
-  "template": "bolt-vite-react-ts"
+  "template": "bolt-vite-react-ts",
+  "apps": [
+    {
+      "name": "frontend",
+      "dir": "frontend",
+      "start": "npm run dev",
+      "build": "npm run build",
+      "preview": "npm run preview",
+      "port": 5173
+    }
+  ]
 }

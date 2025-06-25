@@ -24,5 +24,27 @@ export default tseslint.config(
         { allowConstantExport: true },
       ],
     },
+    overrides: [
+      {
+        files: ['src/**/*.{ts,tsx,js,jsx}'],
+        rules: {
+          'no-restricted-imports': [
+            'error',
+            {
+              paths: [
+                {
+                  name: '../backend',
+                  message: 'Do not import backend modules into frontend code.'
+                },
+                {
+                  name: '../shared/backend-only',
+                  message: 'Do not import backend-only shared modules into frontend.'
+                }
+              ]
+            }
+          ]
+        }
+      }
+    ]
   }
 );
