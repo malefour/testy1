@@ -9,5 +9,7 @@
       "preview": "npm run preview",
       "port": 5173
     }
-  ]
+  ],
+  "build": "npm run build",
+  "start": "npm run dev"
 }
