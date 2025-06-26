@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { ThemeProvider } from './contexts/ThemeContext';
-import NewNavbar from './components/NewNavbar';
+import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import Home from './pages/Home';
 import HowItWorks from './pages/HowItWorks';
@@ -20,7 +20,7 @@ function App() {
     <ThemeProvider>
       <Router>
         <div className="min-h-screen bg-background transition-colors duration-300">
-          <NewNavbar />
+          <Navbar />
           <main>
             <Routes>
               <Route path="/" element={<Home />} />

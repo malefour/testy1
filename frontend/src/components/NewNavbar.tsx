@@ -7,14 +7,20 @@ import { ThemeToggle } from './ui/theme-toggle';
 
 const menuItems = [
     { name: 'How It Works', href: '/how-it-works' },
-    { name: 'Organizers', href: '/for-organizers' },
-    { name: 'Fans', href: '/for-fans' },
+    { name: 'For Organizers', href: '/for-organizers' },
+    { name: 'For Fans', href: '/for-fans' },
     { name: 'Pricing', href: '/pricing' },
     { name: 'Collectibles', href: '/collectibles' },
     { name: 'Investors', href: '/investors' },
 ];
 
-const NewNavbar = () => {
+const solutionsDropdown = [
+  { name: 'Anti-Scalping Technology', href: '/solutions/anti-scalping' },
+  { name: 'Secure Resale', href: '/solutions/secure-resale' },
+  { name: 'Ensuring Authenticity', href: '/solutions/ensuring-authenticity' },
+];
+
+const Navbar = () => {
     const [menuState, setMenuState] = React.useState(false);
     const [isScrolled, setIsScrolled] = React.useState(false);
     const location = useLocation();
@@ -157,4 +163,4 @@ const Logo = ({ className }: { className?: string }) => {
     );
 };
 
-export default NewNavbar;
+export default Navbar;
