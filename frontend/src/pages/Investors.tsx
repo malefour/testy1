@@ -278,6 +278,13 @@ const Investors = () => {
         </div>
       </section>
 
+      {/* Timeline Section */}
+      <section className="py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <Timeline data={timelineData} />
+        </div>
+      </section>
+
       {/* Business Model */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -369,13 +376,6 @@ const Investors = () => {
               </div>
             </div>
           </div>
-        </div>
-      </section>
-
-      {/* Timeline Section */}
-      <section className="py-20 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <Timeline data={timelineData} />
         </div>
       </section>
 
