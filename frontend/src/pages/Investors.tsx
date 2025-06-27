@@ -5,33 +5,11 @@ import { Timeline } from '../components/ui/timeline';
 const Investors = () => {
   const timelineData = [
     {
-      title: "Q4 2024",
+      title: "June 2024",
       content: (
         <div>
-          <p className="text-neutral-800 dark:text-neutral-200 text-xs md:text-sm font-normal mb-8">
-            Series A funding round and major venue partnerships
-          </p>
-          <div className="grid grid-cols-2 gap-4">
-            <div className="bg-gradient-to-br from-teal-50 to-navy-50 p-4 rounded-lg">
-              <DollarSign className="h-6 w-6 text-teal-600 mb-2" />
-              <h4 className="font-semibold text-navy-900 mb-1 text-sm">$8M Series A</h4>
-              <p className="text-xs text-gray-600">Funding secured</p>
-            </div>
-            <div className="bg-gradient-to-br from-purple-50 to-navy-50 p-4 rounded-lg">
-              <Users className="h-6 w-6 text-purple-600 mb-2" />
-              <h4 className="font-semibold text-navy-900 mb-1 text-sm">25+ Venues</h4>
-              <p className="text-xs text-gray-600">Partnerships signed</p>
-            </div>
-          </div>
-        </div>
-      ),
-    },
-    {
-      title: "Q3 2024",
-      content: (
-        <div>
-          <p className="text-neutral-800 dark:text-neutral-200 text-xs md:text-sm font-normal mb-8">
-            Platform launch and initial market validation
+          <p className="text-neutral-800 dark:text-neutral-200 text-xs md:text-sm font-bold mb-8">
+            Idea conception and initial development
           </p>
           <div className="space-y-3">
             <div className="flex items-center gap-2">
@@ -51,28 +29,50 @@ const Investors = () => {
       ),
     },
     {
-      title: "Q2 2024",
+      title: "July 2024",
       content: (
         <div>
-          <p className="text-neutral-800 dark:text-neutral-200 text-xs md:text-sm font-normal mb-8">
-            Pilot program launch and technology validation
+          <p className="text-neutral-800 dark:text-neutral-200 text-xs md:text-sm font-bold mb-8">
+            Platform launch and initial funding push
+          </p>
+          <div className="grid grid-cols-2 gap-4">
+            <div className="bg-gradient-to-br from-teal-50 to-navy-50 p-4 rounded-lg">
+              <DollarSign className="h-6 w-6 text-teal-600 mb-2" />
+              <h4 className="font-semibold text-navy-900 mb-1 text-sm">$1.2M Series A</h4>
+              <p className="text-xs text-gray-600">Initial funding projection</p>
+            </div>
+            <div className="bg-gradient-to-br from-purple-50 to-navy-50 p-4 rounded-lg">
+              <Users className="h-6 w-6 text-purple-600 mb-2" />
+              <h4 className="font-semibold text-navy-900 mb-1 text-sm">Public demo</h4>
+              <p className="text-xs text-gray-600">We'll use our own ticketing technology to offer tickets to a live demo of the product</p>
+            </div>
+          </div>
+        </div>
+      ),
+    },
+    {
+      title: "Q3 2024",
+      content: (
+        <div>
+          <p className="text-neutral-800 dark:text-neutral-200 text-xs md:text-sm font-bold mb-8">
+            MVP deployed, used in smaller venues
           </p>
           <div className="bg-gradient-to-r from-navy-50 to-teal-50 p-4 rounded-lg">
             <Shield className="h-6 w-6 text-navy-600 mb-2" />
             <h4 className="font-semibold text-navy-900 mb-1 text-sm">Security Audit</h4>
             <p className="text-xs text-gray-600">
-              Trail of Bits audit completed, smart contracts deployed
+              Smart contract audit, legislative compliance verified
             </p>
           </div>
         </div>
       ),
     },
     {
-      title: "Q1 2024",
+      title: "Q4 2024",
       content: (
         <div>
-          <p className="text-neutral-800 dark:text-neutral-200 text-xs md:text-sm font-normal mb-8">
-            Core development and initial partnerships
+          <p className="text-neutral-800 dark:text-neutral-200 text-xs md:text-sm font-bold mb-8">
+            First larger-audience event served
           </p>
           <div className="grid grid-cols-2 gap-4">
             <div className="bg-gradient-to-br from-blue-50 to-navy-50 p-4 rounded-lg">

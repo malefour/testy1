@@ -111,7 +111,7 @@ const Home = () => {
 
           <div className="text-center">
             <div className="inline-block bg-teal-600 text-white px-8 py-3 rounded-full font-inter font-semibold mb-8 shadow-soft">
-              OpenTicket Solution
+              Learn how we're combatting this
             </div>
             <h2 className="font-inter font-bold text-4xl text-navy-900 mb-6">
               Built for transparency and fairness.
@@ -212,8 +212,8 @@ const Home = () => {
                 <div className="flex items-start group">
                   <Check className="h-6 w-6 text-teal-600 mt-1 mr-4 flex-shrink-0 group-hover:scale-110 transition-transform duration-300" />
                   <div>
-                    <h3 className="font-inter font-semibold text-navy-900 mb-1">Anti-Bot Protection</h3>
-                    <p className="font-inter text-gray-600">Built-in CAPTCHA and velocity limits stop automated purchases.</p>
+                    <h3 className="font-inter font-semibold text-navy-900 mb-1">Bespoke ticket releases</h3>
+                    <p className="font-inter text-gray-600">Automatically release tickets ant certain intervals and set up custom ticket airdrops</p>
                   </div>
                 </div>
               </div>
@@ -250,10 +250,20 @@ const Home = () => {
                 <div className="h-32 bg-gradient-to-r from-teal-50 to-navy-50 rounded-xl flex items-end p-4">
                   <div className="flex items-end space-x-2 w-full">
                     <div className="bg-teal-500 w-4 h-8 rounded-t hover:h-10 transition-all duration-300"></div>
-                    <div className="bg-teal-500 w-4 h-12 rounded-t hover:h-14 transition-all duration-300"></div>
-                    <div className="bg-teal-500 w-4 h-16 rounded-t hover:h-18 transition-all duration-300"></div>
-                    <div className="bg-teal-500 w-4 h-20 rounded-t hover:h-22 transition-all duration-300"></div>
+                    <div className="bg-teal-500 w-4 h-16 rounded-t hover:h-14 transition-all duration-300"></div>
+                    <div className="bg-teal-500 w-4 h-20 rounded-t hover:h-18 transition-all duration-300"></div>
+                    <div className="bg-teal-500 w-4 h-16 rounded-t hover:h-22 transition-all duration-300"></div>
                     <div className="bg-teal-600 w-4 h-24 rounded-t hover:h-26 transition-all duration-300"></div>
+                    <div className="bg-teal-500 w-4 h-16 rounded-t hover:h-10 transition-all duration-300"></div>
+                    <div className="bg-teal-500 w-4 h-12 rounded-t hover:h-14 transition-all duration-300"></div>
+                    <div className="bg-teal-500 w-4 h-20 rounded-t hover:h-18 transition-all duration-300"></div>
+                    <div className="bg-teal-500 w-4 h-16 rounded-t hover:h-22 transition-all duration-300"></div>
+                    <div className="bg-teal-600 w-4 h-20 rounded-t hover:h-26 transition-all duration-300"></div>
+                    <div className="bg-teal-500 w-4 h-24 rounded-t hover:h-10 transition-all duration-300"></div>
+                    <div className="bg-teal-500 w-4 h-16 rounded-t hover:h-14 transition-all duration-300"></div>
+                    <div className="bg-teal-500 w-4 h-10 rounded-t hover:h-18 transition-all duration-300"></div>
+                    <div className="bg-teal-500 w-4 h-16 rounded-t hover:h-22 transition-all duration-300"></div>
+                    <div className="bg-teal-600 w-4 h-24 rounded-t hover:h-26 transition-all duration-300"></div>                  
                   </div>
                 </div>
               </div>
@@ -416,7 +426,7 @@ const Home = () => {
                 <Zap className="h-8 w-8 text-blue-600" />
               </div>
               <h3 className="font-inter font-bold text-lg text-navy-900 mb-3">Solana Speed</h3>
-              <p className="font-inter text-gray-600 text-sm leading-relaxed">Sub-second transactions with minimal fees</p>
+              <p className="font-inter text-gray-600 text-sm leading-relaxed">Sub-second transactions with minimal fees - issue thousands of tickets easily</p>
             </div>
 
             <div className="text-center group">
@@ -424,7 +434,7 @@ const Home = () => {
                 <Award className="h-8 w-8 text-purple-600" />
               </div>
               <h3 className="font-inter font-bold text-lg text-navy-900 mb-3">Compliant</h3>
-              <p className="font-inter text-gray-600 text-sm leading-relaxed">SOC 2 Type II and GDPR compliant infrastructure</p>
+              <p className="font-inter text-gray-600 text-sm leading-relaxed">We're working on SOC 2 Type II and GDPR compliant infrastructure</p>
             </div>
 
             <div className="text-center group">
@@ -449,7 +459,7 @@ const Home = () => {
 
           <div className="text-center mt-12">
             <Link 
-              to="/investors"
+              to="/how-it-works"
               className="inline-flex items-center bg-navy-900 hover:bg-navy-800 text-white px-8 py-4 rounded-xl font-inter font-semibold text-lg transition-all duration-300 transform hover:scale-105 hover:shadow-soft-lg group"
             >
               Learn About Our Technology

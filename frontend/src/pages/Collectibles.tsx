@@ -22,10 +22,10 @@ const Collectibles = () => {
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
               <h2 className="font-inter font-bold text-4xl text-navy-900 mb-6">
-                More than just tickets—<br />they're digital keepsakes.
+                More than just tickets.<br />They're digital keepsakes.
               </h2>
               <p className="font-roboto text-xl text-gray-600 mb-8">
-                Every OpenTicket becomes a unique piece of art that captures the essence of your event. Fans don't just attend—they own a piece of the experience.
+                Every OpenTicket becomes a unique piece of art that captures the essence of your event. Fans don't just attend, they own a piece of the experience.
               </p>
               
               <div className="space-y-4">
@@ -218,7 +218,7 @@ const Collectibles = () => {
         </div>
       </section>
 
-      {/* Post-Event Benefits */}
+      {/* Circum-Event Benefits */}
       <section className="py-20 bg-navy-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
@@ -226,7 +226,7 @@ const Collectibles = () => {
               The Experience Continues
             </h2>
             <p className="font-roboto text-xl text-gray-600 max-w-3xl mx-auto">
-              Collectible tickets unlock exclusive post-event benefits that keep fans engaged long after the show ends.
+              Collectible tickets unlock exclusive pre-event and post-event benefits that keep fans engaged for much more than the event itself.
             </p>
           </div>
 
@@ -245,7 +245,7 @@ const Collectibles = () => {
               <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mx-auto mb-4">
                 <span className="text-2xl">🎟️</span>
               </div>
-              <h3 className="font-inter font-semibold text-lg text-navy-900 mb-2">Early Access</h3>
+              <h3 className="font-inter font-semibold text-lg text-navy-900 mb-2">Future Offers</h3>
               <p className="font-roboto text-gray-600 text-sm">
                 First dibs on tickets for future events and special presales.
               </p>

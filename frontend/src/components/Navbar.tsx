@@ -1,28 +1,31 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
 import { Button } from './ui/button';
 import { cn } from '../lib/utils';
 import { ThemeToggle } from './ui/theme-toggle';
+import { motion, AnimatePresence } from 'framer-motion';
 
 const menuItems = [
     { name: 'How It Works', href: '/how-it-works' },
-    { name: 'For Organizers', href: '/for-organizers' },
-    { name: 'For Fans', href: '/for-fans' },
     { name: 'Pricing', href: '/pricing' },
-    { name: 'Collectibles', href: '/collectibles' },
+    { name: 'Fans', href: '/for-fans' },
+    { name: 'Organizers', href: '/for-organizers' },
     { name: 'Investors', href: '/investors' },
 ];
 
-const solutionsDropdown = [
+const featuresDropdown = [
   { name: 'Anti-Scalping Technology', href: '/solutions/anti-scalping' },
   { name: 'Secure Resale', href: '/solutions/secure-resale' },
   { name: 'Ensuring Authenticity', href: '/solutions/ensuring-authenticity' },
+  { name: 'Collectibles', href: '/collectibles' },
 ];
 
 const Navbar = () => {
     const [menuState, setMenuState] = React.useState(false);
     const [isScrolled, setIsScrolled] = React.useState(false);
+    const [solutionsOpen, setSolutionsOpen] = React.useState(false);
+    const dropdownTimeout = useRef<NodeJS.Timeout | null>(null);
     const location = useLocation();
 
     React.useEffect(() => {
@@ -63,19 +66,129 @@ const Navbar = () => {
 
                         {/* Desktop Navigation - Centered */}
                         <div className="hidden lg:flex lg:flex-1 lg:justify-center">
-                            <ul className="flex items-center gap-8 text-sm">
-                                {menuItems.map((item, index) => (
-                                    <li key={index}>
-                                        <Link
-                                            to={item.href}
-                                            className={cn(
-                                                "text-muted-foreground hover:text-accent-foreground block duration-150",
-                                                isActive(item.href) && "text-accent-foreground"
-                                            )}>
-                                            <span>{item.name}</span>
-                                        </Link>
-                                    </li>
-                                ))}
+                            <ul className={cn(
+                                "flex items-center text-sm nav-gap-transition",
+                                isScrolled ? "nav-gap-scrolled" : "nav-gap-default"
+                            )}>
+                                {/* How It Works */}
+                                <li>
+                                    <Link
+                                        to="/how-it-works"
+                                        className={cn(
+                                            "text-muted-foreground hover:text-accent-foreground block duration-150 rounded-md px-2 py-1 transition-all",
+                                            isActive('/how-it-works') && "text-accent-foreground",
+                                            "hover:bg-accent/10 hover:shadow-md hover:ring-1 hover:ring-accent/20"
+                                        )}
+                                    >
+                                        <span>How It Works</span>
+                                    </Link>
+                                </li>
+                                {/* Features Dropdown */}
+                                <li className="relative flex justify-center min-w-0"
+                                    onMouseEnter={() => {
+                                        if (dropdownTimeout.current) clearTimeout(dropdownTimeout.current);
+                                        setSolutionsOpen(true);
+                                    }}
+                                    onMouseLeave={() => {
+                                        dropdownTimeout.current = setTimeout(() => setSolutionsOpen(false), 220);
+                                    }}>
+                                    <button
+                                        className={cn(
+                                            "text-muted-foreground hover:text-accent-foreground block duration-150 px-2 py-1 rounded-md transition-all",
+                                            (solutionsOpen || solutionsOpen) && "bg-accent/20 shadow-lg",
+                                            solutionsOpen && "ring-2 ring-accent/40"
+                                        )}
+                                        aria-haspopup="true"
+                                        aria-expanded={solutionsOpen}
+                                        type="button"
+                                    >
+                                        Features
+                                    </button>
+                                    <AnimatePresence>
+                                        {solutionsOpen && (
+                                            <motion.ul
+                                                initial={{ opacity: 0, y: 10 }}
+                                                animate={{ opacity: 1, y: 0 }}
+                                                exit={{ opacity: 0, y: 10 }}
+                                                transition={{ duration: 0.18 }}
+                                                className="absolute top-full mt-2 w-56 rounded-xl border bg-background p-2 shadow-lg z-30 text-center"
+                                                onMouseEnter={() => {
+                                                    if (dropdownTimeout.current) clearTimeout(dropdownTimeout.current);
+                                                    setSolutionsOpen(true);
+                                                }}
+                                                onMouseLeave={() => {
+                                                    dropdownTimeout.current = setTimeout(() => setSolutionsOpen(false), 220);
+                                                }}
+                                            >
+                                                {featuresDropdown.map((item, idx) => (
+                                                    <li key={idx}>
+                                                        <Link
+                                                            to={item.href}
+                                                            className="block px-4 py-2 text-sm text-muted-foreground hover:text-accent-foreground hover:bg-accent/10 rounded-lg transition-all duration-100 hover:shadow-md hover:ring-1 hover:ring-accent/30"
+                                                            onClick={() => setSolutionsOpen(false)}
+                                                        >
+                                                            {item.name}
+                                                        </Link>
+                                                    </li>
+                                                ))}
+                                            </motion.ul>
+                                        )}
+                                    </AnimatePresence>
+                                </li>
+                                {/* Pricing */}
+                                <li>
+                                    <Link
+                                        to="/pricing"
+                                        className={cn(
+                                            "text-muted-foreground hover:text-accent-foreground block duration-150 rounded-md px-2 py-1 transition-all",
+                                            isActive('/pricing') && "text-accent-foreground",
+                                            "hover:bg-accent/10 hover:shadow-md hover:ring-1 hover:ring-accent/20"
+                                        )}
+                                    >
+                                        <span>Pricing</span>
+                                    </Link>
+                                </li>
+                                {/* Divider */}
+                                <li aria-hidden="true" className="mx-2 h-6 border-l border-muted-foreground/30" style={{ minWidth: '1px' }} />
+                                {/* For Fans */}
+                                <li>
+                                    <Link
+                                        to="/for-fans"
+                                        className={cn(
+                                            "text-muted-foreground hover:text-accent-foreground block duration-150 rounded-md px-2 py-1 transition-all",
+                                            isActive('/for-fans') && "text-accent-foreground",
+                                            "hover:bg-accent/10 hover:shadow-md hover:ring-1 hover:ring-accent/20"
+                                        )}
+                                    >
+                                        <span>Fans</span>
+                                    </Link>
+                                </li>
+                                {/* For Organizers */}
+                                <li>
+                                    <Link
+                                        to="/for-organizers"
+                                        className={cn(
+                                            "text-muted-foreground hover:text-accent-foreground block duration-150 rounded-md px-2 py-1 transition-all",
+                                            isActive('/for-organizers') && "text-accent-foreground",
+                                            "hover:bg-accent/10 hover:shadow-md hover:ring-1 hover:ring-accent/20"
+                                        )}
+                                    >
+                                        <span>Organizers</span>
+                                    </Link>
+                                </li>
+                                {/* Investors */}
+                                <li>
+                                    <Link
+                                        to="/investors"
+                                        className={cn(
+                                            "text-muted-foreground hover:text-accent-foreground block duration-150 rounded-md px-2 py-1 transition-all",
+                                            isActive('/investors') && "text-accent-foreground",
+                                            "hover:bg-accent/10 hover:shadow-md hover:ring-1 hover:ring-accent/20"
+                                        )}
+                                    >
+                                        <span>Investors</span>
+                                    </Link>
+                                </li>
                             </ul>
                         </div>
 

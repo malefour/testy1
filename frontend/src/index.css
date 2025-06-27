@@ -169,3 +169,14 @@
 .dark .dark\:after\:bg-gray-700:after {
     background-color: #3f3f46; /* bg-zinc-700 */
 }
+
+.nav-gap-transition {
+  gap: 2rem;
+  transition: gap 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.nav-gap-scrolled {
+  gap: 1rem;
+}
+.nav-gap-default {
+  gap: 2rem;
+}

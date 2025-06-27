@@ -14,6 +14,12 @@ import FAQ from './pages/FAQ';
 import Blog from './pages/Blog';
 import Contact from './pages/Contact';
 import HeroDemo from './pages/HeroDemo';
+import Careers from './pages/Careers';
+import Documentation from './pages/Documentation';
+import APIReference from './pages/APIReference';
+import Security from './pages/Security';
+import PrivacyPolicy from './pages/PrivacyPolicy';
+import TermsOfService from './pages/TermsOfService';
 
 function App() {
   return (
@@ -34,6 +40,12 @@ function App() {
               <Route path="/blog" element={<Blog />} />
               <Route path="/contact" element={<Contact />} />
               <Route path="/hero-demo" element={<HeroDemo />} />
+              <Route path="/careers" element={<Careers />} />
+              <Route path="/documentation" element={<Documentation />} />
+              <Route path="/apireference" element={<APIReference />} />
+              <Route path="/security" element={<Security />} />
+              <Route path="/privacypolicy" element={<PrivacyPolicy />} />
+              <Route path="/termsofservice" element={<TermsOfService />} />
             </Routes>
           </main>
           <Footer />

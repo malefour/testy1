@@ -53,7 +53,7 @@ const Footer = () => {
               <li><Link to="/blog" className="font-inter text-gray-300 hover:text-white transition-colors duration-300 text-sm">Blog</Link></li>
               <li><Link to="/faq" className="font-inter text-gray-300 hover:text-white transition-colors duration-300 text-sm">FAQ</Link></li>
               <li><Link to="/contact" className="font-inter text-gray-300 hover:text-white transition-colors duration-300 text-sm">Contact</Link></li>
-              <li><a href="#" className="font-inter text-gray-300 hover:text-white transition-colors duration-300 text-sm">Careers</a></li>
+              <li><Link to="/careers" className="font-inter text-gray-300 hover:text-white transition-colors duration-300 text-sm">Careers</Link></li>
             </ul>
           </div>
 
@@ -61,11 +61,11 @@ const Footer = () => {
           <div>
             <h3 className="font-inter font-bold text-white mb-6">Support</h3>
             <ul className="space-y-3">
-              <li><a href="#" className="font-inter text-gray-300 hover:text-white transition-colors duration-300 text-sm">Documentation</a></li>
-              <li><a href="#" className="font-inter text-gray-300 hover:text-white transition-colors duration-300 text-sm">API Reference</a></li>
-              <li><a href="#" className="font-inter text-gray-300 hover:text-white transition-colors duration-300 text-sm">Security</a></li>
-              <li><a href="#" className="font-inter text-gray-300 hover:text-white transition-colors duration-300 text-sm">Privacy Policy</a></li>
-              <li><a href="#" className="font-inter text-gray-300 hover:text-white transition-colors duration-300 text-sm">Terms of Service</a></li>
+              <li><Link to="/documentation" className="font-inter text-gray-300 hover:text-white transition-colors duration-300 text-sm">Documentation</Link></li>
+              <li><Link to="/apireference" className="font-inter text-gray-300 hover:text-white transition-colors duration-300 text-sm">API Reference</Link></li>
+              <li><Link to="/security" className="font-inter text-gray-300 hover:text-white transition-colors duration-300 text-sm">Security</Link></li>
+              <li><Link to="/privacypolicy" className="font-inter text-gray-300 hover:text-white transition-colors duration-300 text-sm">Privacy Policy</Link></li>
+              <li><Link to="/termsofservice" className="font-inter text-gray-300 hover:text-white transition-colors duration-300 text-sm">Terms of Service</Link></li>
             </ul>
           </div>
         </div>

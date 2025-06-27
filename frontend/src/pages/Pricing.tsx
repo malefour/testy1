@@ -1,7 +1,45 @@
-import React from 'react';
-import { Check, X, ArrowRight } from 'lucide-react';
+import React, { useState } from 'react';
+import { Check, X, ArrowRight, ChevronDown, ChevronUp } from 'lucide-react';
 
 const Pricing = () => {
+  const [openItems, setOpenItems] = useState<number[]>([]);
+
+  const toggleItem = (index: number) => {
+    setOpenItems(prev => 
+      prev.includes(index) 
+        ? prev.filter(i => i !== index)
+        : [...prev, index]
+    );
+  };
+
+  const faqData = [
+    {
+      category: "Pricing FAQ",
+      questions: [
+        {
+          question: "Are there any setup fees or monthly minimums?",
+          answer: "No setup fees, no monthly minimums. You only pay when you sell tickets. Our pricing is completely transparent and scales with your success."
+        },
+        {
+          question: "Who pays the blockchain transaction fees?",
+          answer: "We cover all blockchain transaction fees (gas fees) for you and your customers. The price you see is the price you pay—no surprise charges."
+        },
+        {
+          question: "Can I change plans anytime?",
+          answer: "Yes, you can upgrade or downgrade your plan at any time. Changes take effect immediately, and we'll pro-rate any differences."
+        },
+        {
+          question: "What about refunds and chargebacks?",
+          answer: "We handle standard refund policies and chargeback protection. Our smart contracts can automate refunds based on your event policies."
+        },
+        {
+          question: "Do you offer volume discounts?",
+          answer: "Yes! Enterprise customers get custom pricing based on ticket volume and specific needs. Contact our sales team for a personalized quote."
+        }
+      ]
+    },
+  ];
+
   return (
     <div className="pt-16">
       {/* Header */}
@@ -227,6 +265,18 @@ const Pricing = () => {
                     <td className="px-6 py-4 text-center"><Check className="h-5 w-5 text-green-600 mx-auto" /></td>
                   </tr>
                   <tr>
+                    <td className="px-6 py-4 font-roboto text-gray-900">Secure resale</td>
+                    <td className="px-6 py-4 text-center"><Check className="h-5 w-5 text-green-600 mx-auto" /></td>
+                    <td className="px-6 py-4 text-center bg-teal-50"><Check className="h-5 w-5 text-green-600 mx-auto" /></td>
+                    <td className="px-6 py-4 text-center"><Check className="h-5 w-5 text-green-600 mx-auto" /></td>
+                  </tr>
+                  <tr>
+                    <td className="px-6 py-4 font-roboto text-gray-900">Authenticity checks</td>
+                    <td className="px-6 py-4 text-center"><Check className="h-5 w-5 text-green-600 mx-auto" /></td>
+                    <td className="px-6 py-4 text-center bg-teal-50"><Check className="h-5 w-5 text-green-600 mx-auto" /></td>
+                    <td className="px-6 py-4 text-center"><Check className="h-5 w-5 text-green-600 mx-auto" /></td>
+                  </tr>
+                  <tr>
                     <td className="px-6 py-4 font-roboto text-gray-900">Custom NFT artwork</td>
                     <td className="px-6 py-4 text-center"><X className="h-5 w-5 text-gray-400 mx-auto" /></td>
                     <td className="px-6 py-4 text-center bg-teal-50"><Check className="h-5 w-5 text-green-600 mx-auto" /></td>
@@ -260,58 +310,46 @@ const Pricing = () => {
       {/* FAQ */}
       <section className="py-20 bg-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="font-inter font-bold text-4xl text-navy-900 mb-4">
-              Pricing FAQ
-            </h2>
-          </div>
-
-          <div className="space-y-8">
-            <div className="border-b border-gray-200 pb-6">
-              <h3 className="font-inter font-semibold text-xl text-navy-900 mb-3">
-                Are there any setup fees or monthly minimums?
-              </h3>
-              <p className="font-roboto text-gray-600">
-                No setup fees, no monthly minimums. You only pay when you sell tickets. Our pricing is completely transparent and scales with your success.
-              </p>
+          {faqData.map((category, categoryIndex) => (
+            <div key={categoryIndex} className="mb-12">
+              <h2 className="font-inter font-bold text-2xl text-navy-900 mb-8 pb-4 border-b-2 border-teal-600">
+                {category.category}
+              </h2>
+              
+              <div className="space-y-4">
+                {category.questions.map((item, itemIndex) => {
+                  const globalIndex = categoryIndex * 100 + itemIndex;
+                  const isOpen = openItems.includes(globalIndex);
+                  
+                  return (
+                    <div key={itemIndex} className="border border-gray-200 rounded-lg overflow-hidden">
+                      <button
+                        onClick={() => toggleItem(globalIndex)}
+                        className="w-full px-6 py-4 text-left bg-gray-50 hover:bg-gray-100 transition-colors flex items-center justify-between"
+                      >
+                        <h3 className="font-inter font-semibold text-lg text-navy-900 pr-4">
+                          {item.question}
+                        </h3>
+                        {isOpen ? (
+                          <ChevronUp className="h-5 w-5 text-gray-500 flex-shrink-0" />
+                        ) : (
+                          <ChevronDown className="h-5 w-5 text-gray-500 flex-shrink-0" />
+                        )}
+                      </button>
+                      
+                      {isOpen && (
+                        <div className="px-6 py-4 bg-white">
+                          <p className="font-roboto text-gray-700 leading-relaxed">
+                            {item.answer}
+                          </p>
+                        </div>
+                      )}
+                    </div>
+                  );
+                })}
+              </div>
             </div>
-
-            <div className="border-b border-gray-200 pb-6">
-              <h3 className="font-inter font-semibold text-xl text-navy-900 mb-3">
-                Who pays the blockchain transaction fees?
-              </h3>
-              <p className="font-roboto text-gray-600">
-                We cover all blockchain transaction fees (gas fees) for you and your customers. The price you see is the price you pay—no surprise charges.
-              </p>
-            </div>
-
-            <div className="border-b border-gray-200 pb-6">
-              <h3 className="font-inter font-semibold text-xl text-navy-900 mb-3">
-                Can I change plans anytime?
-              </h3>
-              <p className="font-roboto text-gray-600">
-                Yes, you can upgrade or downgrade your plan at any time. Changes take effect immediately, and we'll pro-rate any differences.
-              </p>
-            </div>
-
-            <div className="border-b border-gray-200 pb-6">
-              <h3 className="font-inter font-semibold text-xl text-navy-900 mb-3">
-                What about refunds and chargebacks?
-              </h3>
-              <p className="font-roboto text-gray-600">
-                We handle standard refund policies and chargeback protection. Our smart contracts can automate refunds based on your event policies.
-              </p>
-            </div>
-
-            <div>
-              <h3 className="font-inter font-semibold text-xl text-navy-900 mb-3">
-                Do you offer volume discounts?
-              </h3>
-              <p className="font-roboto text-gray-600">
-                Yes! Enterprise customers get custom pricing based on ticket volume and specific needs. Contact our sales team for a personalized quote.
-              </p>
-            </div>
-          </div>
+          ))}
         </div>
       </section>
 
