@@ -11,7 +11,12 @@ export default defineConfig({
       '@openticket/shared': path.resolve(__dirname, '../../packages/shared/src'),
     },
   },
-  optimizeDeps: {
-    exclude: ['lucide-react'],
+  server: {
+    port: 3000,
+    host: true,
+  },
+  build: {
+    outDir: 'dist',
+    sourcemap: true,
   },
 });

@@ -1,0 +1,6 @@
+2025-06-28T14:17:43.950322Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf(".turbo/cookies/.turbo-cookie"), AnchoredSystemPathBuf(".turbo/cookies/1.cookie")}
+2025-06-28T14:17:43.950331Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }}))
+2025-06-28T14:17:44.149776Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/web/vite.config.ts.timestamp-1751120264100-1b4ff1ccfc007.mjs")}
+2025-06-28T14:17:44.149788Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@openticket/web"), path: AnchoredSystemPathBuf("apps/web") }}))
+2025-06-28T14:17:44.550286Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("packages/ui/tsup.config.bundled_nl7wyylrdf.mjs")}
+2025-06-28T14:17:44.550295Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@openticket/ui"), path: AnchoredSystemPathBuf("packages/ui") }}))
