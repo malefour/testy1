@@ -1,19 +1,28 @@
 {
-  "name": "openticket-monorepo",
+  "name": "openticket",
   "version": "1.0.0",
-  "description": "OpenTicket monorepo with frontend and backend",
-  "scripts": {
-    "build": "cd frontend && npm run build",
-    "dev": "cd frontend && npm run dev",
-    "preview": "cd frontend && npm run preview",
-    "install:all": "npm install && cd frontend && npm install && cd ../backend && npm install"
-  },
+  "description": "OpenTicket - Blockchain-based NFT ticketing platform",
+  "private": true,
   "workspaces": [
-    "frontend",
-    "backend"
+    "apps/*",
+    "packages/*"
   ],
-  "dependencies": {
-    "framer-motion": "^12.19.1",
-    "lucide-react": "^0.523.0"
+  "scripts": {
+    "dev": "turbo run dev",
+    "build": "turbo run build",
+    "lint": "turbo run lint",
+    "clean": "turbo run clean",
+    "format": "prettier --write \"**/*.{ts,tsx,md}\"",
+    "type-check": "turbo run type-check"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "prettier": "^3.0.0",
+    "turbo": "^1.10.0",
+    "typescript": "^5.0.0"
+  },
+  "packageManager": "npm@10.0.0",
+  "engines": {
+    "node": ">=18.0.0"
   }
 }

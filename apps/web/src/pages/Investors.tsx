@@ -1,6 +1,6 @@
 import React from 'react';
 import { TrendingUp, Shield, Zap, Globe, BarChart3, Users, DollarSign, Award } from 'lucide-react';
-import { Timeline } from '../components/ui/timeline';
+import { Timeline } from '@openticket/ui';
 
 const Investors = () => {
   const timelineData = [

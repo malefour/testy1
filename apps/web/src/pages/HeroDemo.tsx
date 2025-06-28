@@ -1,5 +1,5 @@
 import React from 'react';
-import { HeroSection } from '../components/ui/hero-section-1';
+import { HeroSection } from '@openticket/ui';
 
 const HeroDemo = () => {
   return (

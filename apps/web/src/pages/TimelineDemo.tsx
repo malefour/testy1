@@ -1,5 +1,5 @@
 import React from 'react';
-import { TimelineDemo } from '../components/ui/timeline-demo';
+import { TimelineDemo } from '@openticket/ui';
 
 const TimelineDemoPage = () => {
   return (

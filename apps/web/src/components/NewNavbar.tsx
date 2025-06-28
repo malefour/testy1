@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, Sun, Moon } from 'lucide-react';
 import { Button } from './ui/button';
-import { cn } from '../lib/utils';
+import { cn } from '@openticket/ui';
 import { ThemeToggle } from './ui/theme-toggle';
 
 const menuItems = [
