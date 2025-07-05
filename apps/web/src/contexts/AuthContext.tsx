@@ -103,11 +103,19 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
         localStorage.setItem('auth_token', data.access_token);
         setUser({ ...data.user, role: credentials.role });
       } else {
-        const errorData = await response.json();
-        throw new Error(errorData.message || 'Login failed');
+        let errorMessage = 'Login failed';
+        try {
+          const errorData = await response.json();
+          errorMessage = errorData.message || errorMessage;
+        } catch (jsonError) {
+          // If response is not JSON, use status text
+          errorMessage = response.statusText || errorMessage;
+        }
+        throw new Error(errorMessage);
       }
     } catch (error) {
-      setError(error instanceof Error ? error.message : 'Login failed');
+      const errorMessage = error instanceof Error ? error.message : 'Login failed';
+      setError(errorMessage);
       throw error;
     } finally {
       setLoading(false);
@@ -136,11 +144,19 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
         localStorage.setItem('auth_token', data.access_token);
         setUser({ ...data.user, role: userData.role });
       } else {
-        const errorData = await response.json();
-        throw new Error(errorData.message || 'Registration failed');
+        let errorMessage = 'Registration failed';
+        try {
+          const errorData = await response.json();
+          errorMessage = errorData.message || errorMessage;
+        } catch (jsonError) {
+          // If response is not JSON, use status text
+          errorMessage = response.statusText || errorMessage;
+        }
+        throw new Error(errorMessage);
       }
     } catch (error) {
-      setError(error instanceof Error ? error.message : 'Registration failed');
+      const errorMessage = error instanceof Error ? error.message : 'Registration failed';
+      setError(errorMessage);
       throw error;
     } finally {
       setLoading(false);

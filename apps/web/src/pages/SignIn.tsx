@@ -87,7 +87,9 @@ const SignIn = () => {
       icon: User,
       gradient: 'from-teal-500 to-cyan-600',
       bgGradient: 'from-teal-50 to-cyan-50',
-      darkBgGradient: 'dark:from-teal-950/20 dark:to-cyan-950/20',
+      darkBgGradient: 'dark:from-teal-950/30 dark:to-cyan-950/30',
+      selectedBorder: 'ring-teal-500 dark:ring-teal-400',
+      selectedBg: 'bg-teal-50 dark:bg-teal-950/40',
     },
     {
       id: 'organizer' as UserRole,
@@ -96,7 +98,9 @@ const SignIn = () => {
       icon: Building2,
       gradient: 'from-purple-500 to-indigo-600',
       bgGradient: 'from-purple-50 to-indigo-50',
-      darkBgGradient: 'dark:from-purple-950/20 dark:to-indigo-950/20',
+      darkBgGradient: 'dark:from-purple-950/30 dark:to-indigo-950/30',
+      selectedBorder: 'ring-purple-500 dark:ring-purple-400',
+      selectedBg: 'bg-purple-50 dark:bg-purple-950/40',
     },
   ];
 
@@ -152,7 +156,7 @@ const SignIn = () => {
                         onClick={() => setSelectedRole(role.id)}
                         className={`w-full p-6 rounded-2xl border-2 transition-all duration-300 text-left ${
                           isSelected
-                            ? `border-transparent bg-gradient-to-br ${role.bgGradient} ${role.darkBgGradient} shadow-lg ring-2 ring-offset-2 ring-offset-white dark:ring-offset-slate-900`
+                            ? `border-transparent ${role.selectedBg} shadow-lg ring-4 ring-offset-2 ring-offset-white dark:ring-offset-slate-900 ${role.selectedBorder}`
                             : 'border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 hover:border-slate-300 dark:hover:border-slate-600'
                         }`}
                         whileHover={{ scale: 1.02 }}
@@ -170,19 +174,17 @@ const SignIn = () => {
                               {role.description}
                             </p>
                           </div>
-                          <div className={`w-5 h-5 rounded-full border-2 transition-all duration-200 ${
+                          <div className={`w-6 h-6 rounded-full border-2 transition-all duration-200 flex items-center justify-center ${
                             isSelected 
                               ? `bg-gradient-to-br ${role.gradient} border-transparent` 
-                              : 'border-slate-300 dark:border-slate-600'
+                              : 'border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-800'
                           }`}>
                             {isSelected && (
                               <motion.div
                                 initial={{ scale: 0 }}
                                 animate={{ scale: 1 }}
-                                className="w-full h-full rounded-full bg-white flex items-center justify-center"
-                              >
-                                <div className="w-2 h-2 rounded-full bg-slate-900"></div>
-                              </motion.div>
+                                className="w-2 h-2 rounded-full bg-white"
+                              />
                             )}
                           </div>
                         </div>
