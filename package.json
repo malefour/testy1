@@ -9,6 +9,9 @@
   ],
   "scripts": {
     "dev": "turbo run dev",
+    "dev:all": "concurrently \"npm run dev:backend\" \"npm run dev:frontend\"",
+    "dev:backend": "cd apps/api && npm run start:dev",
+    "dev:frontend": "cd apps/web && npm run dev",
     "build": "turbo run build",
     "lint": "turbo run lint",
     "clean": "turbo run clean",
@@ -17,6 +20,7 @@
   },
   "devDependencies": {
     "@types/node": "^20.0.0",
+    "concurrently": "^8.2.2",
     "prettier": "^3.0.0",
     "turbo": "^1.10.0",
     "typescript": "^5.0.0"

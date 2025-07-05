@@ -1,0 +1,20 @@
+{
+  "name": "openticket",
+  "description": "OpenTicket - Blockchain-based NFT ticketing platform",
+  "version": "1.0.0",
+  "scripts": {
+    "start": "cd apps/api && npm run start:prod"
+  },
+  "env": {
+    "NODE_ENV": "production",
+    "PORT": "3001",
+    "JWT_SECRET": "your-super-secret-jwt-key-change-this-in-production",
+    "FRONTEND_URL": "https://openticket.bolt.dev"
+  },
+  "build": {
+    "command": "npm install && npm run build"
+  },
+  "deploy": {
+    "command": "npm run start"
+  }
+} 
