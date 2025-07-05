@@ -82,6 +82,43 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
     }
   };
 
+  const handleApiResponse = async (response: Response) => {
+    if (!response.ok) {
+      let errorMessage = 'Request failed';
+      
+      // Check if response has content
+      const contentType = response.headers.get('content-type');
+      
+      if (contentType && contentType.includes('application/json')) {
+        try {
+          const errorData = await response.json();
+          errorMessage = errorData.message || errorMessage;
+        } catch (jsonError) {
+          console.error('Failed to parse error JSON:', jsonError);
+          errorMessage = response.statusText || errorMessage;
+        }
+      } else {
+        // Response is not JSON, use status text
+        errorMessage = response.statusText || `HTTP ${response.status}`;
+      }
+      
+      throw new Error(errorMessage);
+    }
+
+    // Check if response has content for successful responses
+    const contentType = response.headers.get('content-type');
+    if (contentType && contentType.includes('application/json')) {
+      try {
+        return await response.json();
+      } catch (jsonError) {
+        console.error('Failed to parse success JSON:', jsonError);
+        throw new Error('Invalid response format');
+      }
+    } else {
+      throw new Error('Expected JSON response');
+    }
+  };
+
   const login = async (credentials: LoginCredentials) => {
     setLoading(true);
     setError(null);
@@ -98,21 +135,9 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
         }),
       });
 
-      if (response.ok) {
-        const data = await response.json();
-        localStorage.setItem('auth_token', data.access_token);
-        setUser({ ...data.user, role: credentials.role });
-      } else {
-        let errorMessage = 'Login failed';
-        try {
-          const errorData = await response.json();
-          errorMessage = errorData.message || errorMessage;
-        } catch (jsonError) {
-          // If response is not JSON, use status text
-          errorMessage = response.statusText || errorMessage;
-        }
-        throw new Error(errorMessage);
-      }
+      const data = await handleApiResponse(response);
+      localStorage.setItem('auth_token', data.access_token);
+      setUser({ ...data.user, role: credentials.role });
     } catch (error) {
       const errorMessage = error instanceof Error ? error.message : 'Login failed';
       setError(errorMessage);
@@ -139,21 +164,9 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
         }),
       });
 
-      if (response.ok) {
-        const data = await response.json();
-        localStorage.setItem('auth_token', data.access_token);
-        setUser({ ...data.user, role: userData.role });
-      } else {
-        let errorMessage = 'Registration failed';
-        try {
-          const errorData = await response.json();
-          errorMessage = errorData.message || errorMessage;
-        } catch (jsonError) {
-          // If response is not JSON, use status text
-          errorMessage = response.statusText || errorMessage;
-        }
-        throw new Error(errorMessage);
-      }
+      const data = await handleApiResponse(response);
+      localStorage.setItem('auth_token', data.access_token);
+      setUser({ ...data.user, role: userData.role });
     } catch (error) {
       const errorMessage = error instanceof Error ? error.message : 'Registration failed';
       setError(errorMessage);

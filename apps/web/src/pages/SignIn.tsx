@@ -87,9 +87,10 @@ const SignIn = () => {
       icon: User,
       gradient: 'from-teal-500 to-cyan-600',
       bgGradient: 'from-teal-50 to-cyan-50',
-      darkBgGradient: 'dark:from-teal-950/30 dark:to-cyan-950/30',
+      darkBgGradient: 'dark:from-teal-950/50 dark:to-cyan-950/50',
       selectedBorder: 'ring-teal-500 dark:ring-teal-400',
-      selectedBg: 'bg-teal-50 dark:bg-teal-950/40',
+      selectedBg: 'bg-teal-500/10 dark:bg-teal-400/20',
+      selectedText: 'text-teal-700 dark:text-teal-300',
     },
     {
       id: 'organizer' as UserRole,
@@ -98,9 +99,10 @@ const SignIn = () => {
       icon: Building2,
       gradient: 'from-purple-500 to-indigo-600',
       bgGradient: 'from-purple-50 to-indigo-50',
-      darkBgGradient: 'dark:from-purple-950/30 dark:to-indigo-950/30',
+      darkBgGradient: 'dark:from-purple-950/50 dark:to-indigo-950/50',
       selectedBorder: 'ring-purple-500 dark:ring-purple-400',
-      selectedBg: 'bg-purple-50 dark:bg-purple-950/40',
+      selectedBg: 'bg-purple-500/10 dark:bg-purple-400/20',
+      selectedText: 'text-purple-700 dark:text-purple-300',
     },
   ];
 
@@ -167,10 +169,14 @@ const SignIn = () => {
                             <Icon className="h-6 w-6 text-white" />
                           </div>
                           <div className="flex-1">
-                            <h3 className="text-lg font-semibold text-slate-900 dark:text-slate-100 mb-1">
+                            <h3 className={`text-lg font-semibold mb-1 ${
+                              isSelected ? role.selectedText : 'text-slate-900 dark:text-slate-100'
+                            }`}>
                               {role.title}
                             </h3>
-                            <p className="text-slate-600 dark:text-slate-400 text-sm">
+                            <p className={`text-sm ${
+                              isSelected ? role.selectedText : 'text-slate-600 dark:text-slate-400'
+                            }`}>
                               {role.description}
                             </p>
                           </div>
