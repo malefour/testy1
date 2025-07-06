@@ -52,7 +52,10 @@ const Navbar = () => {
             <nav
                 data-state={menuState && 'active'}
                 className="fixed z-20 w-full px-4 group">
-                <div className={cn('mx-auto mt-2 max-w-6xl transition-all duration-300 lg:px-8', isScrolled && 'bg-background/80 max-w-4xl rounded-2xl border backdrop-blur-xl lg:px-6 shadow-lg')}>
+                <div className={cn(
+                    'mx-auto mt-2 max-w-6xl transition-all duration-300 lg:px-8', 
+                    isScrolled && 'bg-secondary/80 max-w-4xl rounded-xl border border-primary backdrop-blur-xl lg:px-6 shadow-lg'
+                )}>
                     <div className="relative flex items-center justify-between gap-6 py-3 lg:gap-0 lg:py-4">
                         {/* Logo */}
                         <div className="flex-shrink-0">
@@ -84,9 +87,8 @@ const Navbar = () => {
                                     <Link
                                         to="/how-it-works"
                                         className={cn(
-                                            "text-muted-foreground hover:text-accent-foreground block duration-150 rounded-md px-3 py-2 transition-all font-medium",
-                                            isActive('/how-it-works') && "text-accent-foreground bg-accent/10",
-                                            "hover:bg-accent/10 hover:shadow-md hover:ring-1 hover:ring-accent/20"
+                                            "nav-link",
+                                            isActive('/how-it-works') && "active"
                                         )}
                                     >
                                         <span>Function</span>
@@ -103,8 +105,8 @@ const Navbar = () => {
                                     }}>
                                     <button
                                         className={cn(
-                                            "text-muted-foreground hover:text-accent-foreground block duration-150 px-3 py-2 rounded-md transition-all font-medium",
-                                            solutionsOpen && "bg-accent/20 shadow-lg ring-2 ring-accent/40"
+                                            "nav-link",
+                                            solutionsOpen && "active"
                                         )}
                                         aria-haspopup="true"
                                         aria-expanded={solutionsOpen}
@@ -119,7 +121,7 @@ const Navbar = () => {
                                                 animate={{ opacity: 1, y: 0, scale: 1 }}
                                                 exit={{ opacity: 0, y: 10, scale: 0.95 }}
                                                 transition={{ duration: 0.15, ease: "easeOut" }}
-                                                className="absolute top-full mt-2 w-64 rounded-xl border bg-background/95 backdrop-blur-xl p-2 shadow-xl z-30 text-left"
+                                                className="absolute top-full mt-2 w-64 rounded-xl border border-primary bg-secondary/95 backdrop-blur-xl p-2 shadow-xl z-30 text-left"
                                                 onMouseEnter={() => {
                                                     if (dropdownTimeout.current) clearTimeout(dropdownTimeout.current);
                                                     setSolutionsOpen(true);
@@ -132,7 +134,7 @@ const Navbar = () => {
                                                     <li key={idx}>
                                                         <Link
                                                             to={item.href}
-                                                            className="block px-4 py-3 text-sm text-muted-foreground hover:text-accent-foreground hover:bg-accent/10 rounded-lg transition-all duration-150 hover:shadow-md hover:ring-1 hover:ring-accent/30"
+                                                            className="block px-4 py-3 text-sm text-secondary hover:text-accent hover:bg-accent-light rounded-lg transition-all duration-150"
                                                             onClick={() => setSolutionsOpen(false)}
                                                         >
                                                             {item.name}
@@ -148,24 +150,22 @@ const Navbar = () => {
                                     <Link
                                         to="/pricing"
                                         className={cn(
-                                            "text-muted-foreground hover:text-accent-foreground block duration-150 rounded-md px-3 py-2 transition-all font-medium",
-                                            isActive('/pricing') && "text-accent-foreground bg-accent/10",
-                                            "hover:bg-accent/10 hover:shadow-md hover:ring-1 hover:ring-accent/20"
+                                            "nav-link",
+                                            isActive('/pricing') && "active"
                                         )}
                                     >
                                         <span>Pricing</span>
                                     </Link>
                                 </li>
                                 {/* Divider */}
-                                <li aria-hidden="true" className="mx-2 h-6 border-l border-muted-foreground/30" style={{ minWidth: '1px' }} />
+                                <li aria-hidden="true" className="mx-2 h-6 border-l border-primary" style={{ minWidth: '1px' }} />
                                 {/* For Fans */}
                                 <li>
                                     <Link
                                         to="/for-fans"
                                         className={cn(
-                                            "text-muted-foreground hover:text-accent-foreground block duration-150 rounded-md px-3 py-2 transition-all font-medium",
-                                            isActive('/for-fans') && "text-accent-foreground bg-accent/10",
-                                            "hover:bg-accent/10 hover:shadow-md hover:ring-1 hover:ring-accent/20"
+                                            "nav-link",
+                                            isActive('/for-fans') && "active"
                                         )}
                                     >
                                         <span>Fans</span>
@@ -176,9 +176,8 @@ const Navbar = () => {
                                     <Link
                                         to="/for-organizers"
                                         className={cn(
-                                            "text-muted-foreground hover:text-accent-foreground block duration-150 rounded-md px-3 py-2 transition-all font-medium",
-                                            isActive('/for-organizers') && "text-accent-foreground bg-accent/10",
-                                            "hover:bg-accent/10 hover:shadow-md hover:ring-1 hover:ring-accent/20"
+                                            "nav-link",
+                                            isActive('/for-organizers') && "active"
                                         )}
                                     >
                                         <span>Organizers</span>
@@ -189,9 +188,8 @@ const Navbar = () => {
                                     <Link
                                         to="/investors"
                                         className={cn(
-                                            "text-muted-foreground hover:text-accent-foreground block duration-150 rounded-md px-3 py-2 transition-all font-medium",
-                                            isActive('/investors') && "text-accent-foreground bg-accent/10",
-                                            "hover:bg-accent/10 hover:shadow-md hover:ring-1 hover:ring-accent/20"
+                                            "nav-link",
+                                            isActive('/investors') && "active"
                                         )}
                                     >
                                         <span>Investors</span>
@@ -217,11 +215,11 @@ const Navbar = () => {
                                     <button
                                         className={cn(
                                             "flex items-center space-x-2 px-3 py-2 rounded-lg text-sm font-medium transition-all duration-150",
-                                            "text-muted-foreground hover:text-accent-foreground hover:bg-accent/10",
-                                            accountOpen && "bg-accent/20 shadow-lg ring-2 ring-accent/40"
+                                            "text-secondary hover:text-accent hover:bg-accent-light",
+                                            accountOpen && "bg-accent-light text-accent"
                                         )}
                                     >
-                                        <div className="w-7 h-7 bg-gradient-to-br from-teal-500 to-blue-600 rounded-full flex items-center justify-center shadow-md">
+                                        <div className="w-7 h-7 bg-gradient-subtle rounded-full flex items-center justify-center shadow-md">
                                             <User className="h-4 w-4 text-white" />
                                         </div>
                                         <span className="hidden lg:inline font-medium">{user.username}</span>
@@ -234,14 +232,14 @@ const Navbar = () => {
                                                 animate={{ opacity: 1, y: 0, scale: 1 }}
                                                 exit={{ opacity: 0, y: 10, scale: 0.95 }}
                                                 transition={{ duration: 0.15, ease: "easeOut" }}
-                                                className="absolute top-full right-0 mt-2 w-56 rounded-xl border bg-background/95 backdrop-blur-xl shadow-xl z-30"
+                                                className="absolute top-full right-0 mt-2 w-56 rounded-xl border border-primary bg-secondary/95 backdrop-blur-xl shadow-xl z-30"
                                             >
-                                                <div className="px-4 py-3 border-b border-border/50">
-                                                    <p className="text-sm font-semibold text-foreground">{user.username}</p>
-                                                    <p className="text-xs text-muted-foreground capitalize flex items-center">
+                                                <div className="px-4 py-3 border-b border-primary">
+                                                    <p className="text-sm font-semibold text-primary">{user.username}</p>
+                                                    <p className="text-xs text-muted capitalize flex items-center">
                                                         <span className={cn(
                                                             "w-2 h-2 rounded-full mr-2",
-                                                            user.role === 'organiser' ? 'bg-purple-500' : 'bg-teal-500'
+                                                            user.role === 'organiser' ? 'bg-purple-500' : 'bg-accent'
                                                         )}></span>
                                                         {user.role}
                                                     </p>
@@ -249,7 +247,7 @@ const Navbar = () => {
                                                 <div className="p-2">
                                                     <Link
                                                         to="/dashboard"
-                                                        className="flex items-center px-3 py-2 text-sm text-muted-foreground hover:text-accent-foreground hover:bg-accent/10 rounded-lg transition-all duration-150"
+                                                        className="flex items-center px-3 py-2 text-sm text-secondary hover:text-accent hover:bg-accent-light rounded-lg transition-all duration-150"
                                                         onClick={() => setAccountOpen(false)}
                                                     >
                                                         <Settings className="h-4 w-4 mr-3" />
@@ -257,7 +255,7 @@ const Navbar = () => {
                                                     </Link>
                                                     <button
                                                         onClick={handleLogout}
-                                                        className="w-full flex items-center px-3 py-2 text-sm text-muted-foreground hover:text-red-600 hover:bg-red-50 dark:hover:bg-red-950/20 rounded-lg transition-all duration-150"
+                                                        className="w-full flex items-center px-3 py-2 text-sm text-secondary hover:text-error hover:bg-red-50 rounded-lg transition-all duration-150"
                                                     >
                                                         <LogOut className="h-4 w-4 mr-3" />
                                                         Sign Out
@@ -271,7 +269,7 @@ const Navbar = () => {
                                 <Button
                                     asChild
                                     size="sm"
-                                    className="hidden lg:inline-flex bg-gradient-to-r from-teal-600 to-blue-600 hover:from-teal-700 hover:to-blue-700 shadow-md">
+                                    className="hidden lg:inline-flex btn-primary">
                                     <Link to="/signin">
                                         <span>Sign In</span>
                                     </Link>
@@ -280,7 +278,7 @@ const Navbar = () => {
                         </div>
 
                         {/* Mobile menu */}
-                        <div className="bg-background/95 backdrop-blur-xl group-data-[state=active]:block lg:group-data-[state=active]:flex mb-6 hidden w-full flex-wrap items-center justify-end space-y-8 rounded-3xl border p-6 shadow-2xl shadow-zinc-300/20 md:flex-nowrap lg:m-0 lg:flex lg:w-fit lg:gap-2 lg:space-y-0 lg:border-transparent lg:bg-transparent lg:p-0 lg:shadow-none dark:shadow-none dark:lg:bg-transparent">
+                        <div className="bg-secondary/95 backdrop-blur-xl group-data-[state=active]:block lg:group-data-[state=active]:flex mb-6 hidden w-full flex-wrap items-center justify-end space-y-8 rounded-xl border border-primary p-6 shadow-xl md:flex-nowrap lg:m-0 lg:flex lg:w-fit lg:gap-2 lg:space-y-0 lg:border-transparent lg:bg-transparent lg:p-0 lg:shadow-none">
                             <div className="lg:hidden">
                                 <ul className="space-y-6 text-base">
                                     {menuItems.map((item, index) => (
@@ -288,8 +286,8 @@ const Navbar = () => {
                                             <Link
                                                 to={item.href}
                                                 className={cn(
-                                                    "text-muted-foreground hover:text-accent-foreground block duration-150 font-medium",
-                                                    isActive(item.href) && "text-accent-foreground"
+                                                    "text-secondary hover:text-accent block duration-150 font-medium",
+                                                    isActive(item.href) && "text-accent"
                                                 )}
                                                 onClick={() => setMenuState(false)}>
                                                 <span>{item.name}</span>
@@ -303,7 +301,7 @@ const Navbar = () => {
                                     <Button
                                         asChild
                                         size="sm"
-                                        className="lg:hidden bg-gradient-to-r from-teal-600 to-blue-600 hover:from-teal-700 hover:to-blue-700">
+                                        className="lg:hidden btn-primary">
                                         <Link to="/signin">
                                             <span>Sign In</span>
                                         </Link>
@@ -341,10 +339,10 @@ const Logo = ({ className }: { className?: string }) => {
                     x2="10"
                     y2="20"
                     gradientUnits="userSpaceOnUse">
-                    <stop stopColor="#14B8A6" />
+                    <stop stopColor="var(--color-accent)" />
                     <stop
                         offset="1"
-                        stopColor="#3B82F6"
+                        stopColor="#9945FF"
                     />
                 </linearGradient>
             </defs>

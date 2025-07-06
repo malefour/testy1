@@ -5,6 +5,32 @@ export default {
   theme: {
     extend: {
       colors: {
+        // Design token-based colors
+        primary: 'var(--color-bg)',
+        secondary: 'var(--color-bg-secondary)',
+        tertiary: 'var(--color-bg-tertiary)',
+        accent: {
+          DEFAULT: 'var(--color-accent)',
+          hover: 'var(--color-accent-hover)',
+          light: 'var(--color-accent-light)',
+        },
+        text: {
+          primary: 'var(--color-text)',
+          secondary: 'var(--color-text-secondary)',
+          muted: 'var(--color-text-muted)',
+        },
+        border: {
+          DEFAULT: 'var(--color-border)',
+          primary: 'var(--color-border)',
+          light: 'var(--color-border-light)',
+        },
+        error: 'var(--color-error)',
+        success: 'var(--color-success)',
+        warning: 'var(--color-warning)',
+        gradient: 'var(--color-gradient)',
+        'gradient-subtle': 'var(--color-gradient-subtle)',
+        
+        // Legacy colors for compatibility
         navy: {
           50: '#f8fafc',
           100: '#f1f5f9',
@@ -41,43 +67,60 @@ export default {
           800: '#1f2937',
           900: '#111827',
         },
-        border: "hsl(var(--border))",
-        input: "hsl(var(--input))",
-        ring: "hsl(var(--ring))",
-        background: "hsl(var(--background))",
-        foreground: "hsl(var(--foreground))",
-        primary: {
-          DEFAULT: "hsl(var(--primary))",
-          foreground: "hsl(var(--primary-foreground))",
-        },
-        secondary: {
-          DEFAULT: "hsl(var(--secondary))",
-          foreground: "hsl(var(--secondary-foreground))",
-        },
-        destructive: {
-          DEFAULT: "hsl(var(--destructive))",
-          foreground: "hsl(var(--destructive-foreground))",
-        },
-        muted: {
-          DEFAULT: "hsl(var(--muted))",
-          foreground: "hsl(var(--muted-foreground))",
-        },
-        accent: {
-          DEFAULT: "hsl(var(--accent))",
-          foreground: "hsl(var(--accent-foreground))",
+        
+        // Shadcn/ui compatibility
+        background: "var(--color-bg)",
+        foreground: "var(--color-text)",
+        card: {
+          DEFAULT: "var(--color-bg-secondary)",
+          foreground: "var(--color-text)",
         },
         popover: {
-          DEFAULT: "hsl(var(--popover))",
-          foreground: "hsl(var(--popover-foreground))",
+          DEFAULT: "var(--color-bg-secondary)",
+          foreground: "var(--color-text)",
         },
-        card: {
-          DEFAULT: "hsl(var(--card))",
-          foreground: "hsl(var(--card-foreground))",
+        muted: {
+          DEFAULT: "var(--color-bg-tertiary)",
+          foreground: "var(--color-text-muted)",
         },
+        destructive: {
+          DEFAULT: "var(--color-error)",
+          foreground: "#ffffff",
+        },
+        input: "var(--color-bg-secondary)",
+        ring: "var(--color-accent)",
       },
       fontFamily: {
         'inter': ['Inter', 'sans-serif'],
         'roboto': ['Inter', 'sans-serif'],
+        'mono': ['IBM Plex Mono', 'monospace'],
+      },
+      fontSize: {
+        'display': ['3.5rem', { lineHeight: '1.1', letterSpacing: '-0.02em' }],
+        'heading-1': ['2.5rem', { lineHeight: '1.2', letterSpacing: '-0.01em' }],
+        'heading-2': ['2rem', { lineHeight: '1.3' }],
+        'heading-3': ['1.5rem', { lineHeight: '1.4' }],
+        'body-lg': ['1.125rem', { lineHeight: '1.6' }],
+        'body': ['1rem', { lineHeight: '1.6' }],
+        'body-sm': ['0.875rem', { lineHeight: '1.5' }],
+        'caption': ['0.75rem', { lineHeight: '1.4' }],
+      },
+      borderRadius: {
+        'sm': 'var(--radius-sm)',
+        'md': 'var(--radius-md)',
+        'lg': 'var(--radius-lg)',
+        'xl': 'var(--radius-xl)',
+      },
+      boxShadow: {
+        'sm': 'var(--shadow-sm)',
+        'md': 'var(--shadow-md)',
+        'lg': 'var(--shadow-lg)',
+        'xl': 'var(--shadow-xl)',
+      },
+      transitionDuration: {
+        'fast': 'var(--transition-fast)',
+        'normal': 'var(--transition-normal)',
+        'slow': 'var(--transition-slow)',
       },
       animation: {
         'fade-in': 'fadeIn 0.8s ease-out',
@@ -105,11 +148,6 @@ export default {
           '0%, 100%': { transform: 'translateY(0px)' },
           '50%': { transform: 'translateY(-10px)' },
         }
-      },
-      borderRadius: {
-        lg: "var(--radius)",
-        md: "calc(var(--radius) - 2px)",
-        sm: "calc(var(--radius) - 4px)",
       },
     },
   },
