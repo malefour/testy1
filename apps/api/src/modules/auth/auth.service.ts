@@ -60,7 +60,7 @@ export class AuthService {
     const payload = { userId: user.id, username: user.username, email: user.email, role: user.role };
     return {
       ...payload,
-      token: createMockJwt(payload),
+      access_token: createMockJwt(payload),
     };
   }
 } 

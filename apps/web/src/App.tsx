@@ -1,9 +1,9 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Navigate, useLocation } from 'react-router-dom';
 import { ThemeProvider } from './contexts/ThemeContext';
-import { AuthProvider } from './contexts/AuthContext';
+import { AuthProvider, useAuth } from './contexts/AuthContext';
 import Navbar from './components/Navbar';
-import Footer from './components/Footer';
+import { Footer } from './components/new_footer';
 import ProtectedRoute from './components/ProtectedRoute';
 import DashboardLayout from './components/layout/DashboardLayout';
 
@@ -39,16 +39,56 @@ import FansDashboard from './pages/fans/Dashboard';
 import AdminDashboard from './pages/admin/Dashboard';
 import DevTools from './pages/admin/DevTools';
 
+// Dashboard redirect component
+const DashboardRedirect: React.FC = () => {
+  const { user } = useAuth();
+  
+  if (user?.role === 'organiser') {
+    return <Navigate to="/platform/dashboard" replace />;
+  } else if (user?.role === 'attendee') {
+    return <Navigate to="/fans/dashboard" replace />;
+  } else if (user?.role === 'admin') {
+    return <Navigate to="/admin/dashboard" replace />;
+  }
+  
+  // Fallback to signin
+  return <Navigate to="/signin" replace />;
+};
+
 // Role-based route wrapper
 const RoleBasedRoute: React.FC<{ children: React.ReactNode; allowedRoles: string[] }> = ({ 
   children, 
   allowedRoles 
 }) => {
-  return (
-    <ProtectedRoute>
-      {children}
-    </ProtectedRoute>
-  );
+  const { user, loading } = useAuth();
+  const location = useLocation();
+
+  if (loading) {
+    return (
+      <div className="min-h-screen flex items-center justify-center">
+        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-teal-600"></div>
+      </div>
+    );
+  }
+
+  if (!user) {
+    return <Navigate to="/signin" state={{ from: location }} replace />;
+  }
+
+  if (!allowedRoles.includes(user.role)) {
+    // Redirect to appropriate dashboard based on user role
+    if (user.role === 'organiser') {
+      return <Navigate to="/platform/dashboard" replace />;
+    } else if (user.role === 'attendee') {
+      return <Navigate to="/fans/dashboard" replace />;
+    } else if (user.role === 'admin') {
+      return <Navigate to="/admin/dashboard" replace />;
+    }
+    // Fallback to signin
+    return <Navigate to="/signin" replace />;
+  }
+
+  return <>{children}</>;
 };
 
 function App() {
@@ -202,9 +242,16 @@ function App() {
               </div>
             } />
 
+            {/* Dashboard redirect route */}
+            <Route path="/dashboard" element={
+              <ProtectedRoute>
+                <DashboardRedirect />
+              </ProtectedRoute>
+            } />
+
             {/* Protected dashboard routes */}
             <Route path="/platform/*" element={
-              <RoleBasedRoute allowedRoles={['organizer']}>
+              <RoleBasedRoute allowedRoles={['organiser']}>
                 <DashboardLayout />
               </RoleBasedRoute>
             }>
@@ -220,7 +267,7 @@ function App() {
             </Route>
 
             <Route path="/fans/*" element={
-              <RoleBasedRoute allowedRoles={['fan']}>
+              <RoleBasedRoute allowedRoles={['attendee']}>
                 <DashboardLayout />
               </RoleBasedRoute>
             }>

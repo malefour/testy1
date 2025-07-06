@@ -16,11 +16,11 @@ const Home = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className={`text-center transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
             <h1 className="font-inter font-bold text-5xl lg:text-6xl text-navy-900 mb-6 leading-tight animate-slide-up">
-              Ticketing. Owned, fair,<br />
-              <span className="text-teal-600">and fraud-proof.</span>
+            A ticketing platform<br />
+              <span className="text-teal-600">For fans, not bots.</span>
             </h1>
             <p className="font-inter text-xl text-gray-600 mb-8 max-w-3xl mx-auto leading-relaxed animate-stagger-1">
-              OpenTicket issues NFT-based event tickets on Solana. Transparent pricing. No scalping. Real ownership.
+            Transparent ticket sales with bespoke resale limits and fraud prevention. <br /> All without sacrificing user experience.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center animate-stagger-2">
               <button className="bg-navy-900 hover:bg-navy-800 text-white px-8 py-4 rounded-xl font-inter font-semibold text-lg transition-all duration-300 transform hover:scale-105 hover:shadow-soft-lg group relative overflow-hidden">

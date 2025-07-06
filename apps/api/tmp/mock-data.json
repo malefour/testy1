@@ -15,6 +15,62 @@
       "role": "organiser",
       "id": "zh8hz13u0rl1pbfljystzq",
       "createdAt": "2025-07-05T23:11:43.205Z"
+    },
+    {
+      "username": "newuser123",
+      "email": "new@example.com",
+      "password": "password123",
+      "role": "attendee",
+      "id": "dth44bqsc7badhy2stjswo",
+      "createdAt": "2025-07-06T11:52:34.563Z"
+    },
+    {
+      "username": "testuser2",
+      "email": "test2@example.com",
+      "password": "password123",
+      "role": "attendee",
+      "id": "e1lowrjjejph1tmb21oiba",
+      "createdAt": "2025-07-06T11:53:37.400Z"
+    },
+    {
+      "username": "testuser3",
+      "email": "test3@example.com",
+      "password": "password123",
+      "role": "attendee",
+      "id": "9bstakr844dhxyhn6lomp",
+      "createdAt": "2025-07-06T11:54:44.462Z"
+    },
+    {
+      "username": "test_1A",
+      "email": "test_1A@example.com",
+      "password": "test_1A",
+      "role": "attendee",
+      "id": "slvoz198s3gfxfxsp1mwie",
+      "createdAt": "2025-07-06T11:55:37.720Z"
+    },
+    {
+      "username": "test_1O",
+      "email": "test_1O@example.com",
+      "password": "test_1O",
+      "role": "organiser",
+      "id": "s920cke2hlcz2cenlvloih",
+      "createdAt": "2025-07-06T11:56:51.261Z"
+    },
+    {
+      "username": "attendee_test",
+      "email": "attendee@example.com",
+      "password": "password123",
+      "role": "attendee",
+      "id": "h0qgibivxkp9go0bc4k80i",
+      "createdAt": "2025-07-06T11:59:14.361Z"
+    },
+    {
+      "username": "organiser_test",
+      "email": "organiser@example.com",
+      "password": "password123",
+      "role": "organiser",
+      "id": "v1pydufu3q4ckwkv4d71h",
+      "createdAt": "2025-07-06T12:00:06.924Z"
     }
   ],
   "events": [

@@ -32,7 +32,7 @@ export class AuthResponseDto {
   username!: string;
   email!: string;
   role!: string;
-  token!: string;
+  access_token!: string;
 }
 
 export class UserResponseDto {

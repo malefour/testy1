@@ -241,7 +241,7 @@ const Navbar = () => {
                                                     <p className="text-xs text-muted-foreground capitalize flex items-center">
                                                         <span className={cn(
                                                             "w-2 h-2 rounded-full mr-2",
-                                                            user.role === 'organizer' ? 'bg-purple-500' : 'bg-teal-500'
+                                                            user.role === 'organiser' ? 'bg-purple-500' : 'bg-teal-500'
                                                         )}></span>
                                                         {user.role}
                                                     </p>

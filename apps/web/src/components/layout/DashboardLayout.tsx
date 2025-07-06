@@ -43,7 +43,7 @@ const DashboardLayout = () => {
   const location = useLocation();
 
   const getNavigationItems = (): NavigationItem[] => {
-    if (user?.role === 'organizer') {
+    if (user?.role === 'organiser') {
       return [
         { name: 'Dashboard', href: '/platform/dashboard', icon: Home },
         { name: 'Events', href: '/platform/events', icon: Calendar },
@@ -84,7 +84,7 @@ const DashboardLayout = () => {
 
   const getRoleIcon = () => {
     switch (user?.role) {
-      case 'organizer':
+      case 'organiser':
         return <Building2 className="h-4 w-4" />;
       case 'admin':
         return <Shield className="h-4 w-4" />;
@@ -95,7 +95,7 @@ const DashboardLayout = () => {
 
   const getRoleColor = () => {
     switch (user?.role) {
-      case 'organizer':
+      case 'organiser':
         return 'from-purple-500 to-indigo-600';
       case 'admin':
         return 'from-red-500 to-pink-600';
@@ -266,7 +266,7 @@ const DashboardLayout = () => {
                       </div>
                       <button
                         onClick={() => {
-                          navigate(user?.role === 'organizer' ? '/platform/settings' : user?.role === 'admin' ? '/admin/settings' : '/fans/settings');
+                          navigate(user?.role === 'organiser' ? '/platform/settings' : user?.role === 'admin' ? '/admin/settings' : '/fans/settings');
                           setProfileOpen(false);
                         }}
                         className="w-full flex items-center px-4 py-2 text-sm text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-700"

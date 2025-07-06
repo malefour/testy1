@@ -4,11 +4,11 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Eye, EyeOff, User, Building2, ArrowRight, Loader2 } from 'lucide-react';
 import { useAuth } from '../contexts/AuthContext';
 
-type UserRole = 'fan' | 'organizer';
+type UserRole = 'attendee' | 'organiser';
 type FormMode = 'signin' | 'signup';
 
 const SignIn = () => {
-  const [selectedRole, setSelectedRole] = useState<UserRole>('fan');
+  const [selectedRole, setSelectedRole] = useState<UserRole>('attendee');
   const [formMode, setFormMode] = useState<FormMode>('signin');
   const [showPassword, setShowPassword] = useState(false);
   const [formData, setFormData] = useState({
@@ -81,8 +81,8 @@ const SignIn = () => {
 
   const roleOptions = [
     {
-      id: 'fan' as UserRole,
-      title: 'Fan',
+      id: 'attendee' as UserRole,
+      title: 'Attendee',
       description: 'Buy tickets, attend events, collect NFTs',
       icon: User,
       gradient: 'from-teal-500 to-cyan-600',
@@ -93,8 +93,8 @@ const SignIn = () => {
       selectedText: 'text-teal-700 dark:text-teal-300',
     },
     {
-      id: 'organizer' as UserRole,
-      title: 'Organizer',
+      id: 'organiser' as UserRole,
+      title: 'Organiser',
       description: 'Create events, manage tickets, track analytics',
       icon: Building2,
       gradient: 'from-purple-500 to-indigo-600',

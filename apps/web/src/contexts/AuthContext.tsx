@@ -4,7 +4,7 @@ interface User {
   id: number;
   username: string;
   email: string;
-  role: 'fan' | 'organizer';
+  role: 'attendee' | 'organiser' | 'admin';
   created_at: string;
   updated_at: string;
 }
@@ -21,14 +21,14 @@ interface AuthContextType {
 interface LoginCredentials {
   username: string;
   password: string;
-  role: 'fan' | 'organizer';
+  role: 'attendee' | 'organiser';
 }
 
 interface RegisterData {
   username: string;
   email: string;
   password: string;
-  role: 'fan' | 'organizer';
+  role: 'attendee' | 'organiser';
 }
 
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
@@ -70,7 +70,7 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
 
       if (response.ok) {
         const userData = await response.json();
-        setUser({ ...userData, role: userData.role || 'fan' });
+        setUser({ ...userData, role: userData.role || 'attendee' });
       } else {
         localStorage.removeItem('auth_token');
       }
@@ -154,7 +154,14 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
       console.log('Login successful:', data);
       
       localStorage.setItem('auth_token', data.access_token);
-      setUser({ ...data.user, role: credentials.role });
+      setUser({ 
+        id: data.userId, 
+        username: data.username, 
+        email: data.email, 
+        role: data.role, 
+        created_at: new Date().toISOString(), 
+        updated_at: new Date().toISOString() 
+      });
     } catch (error) {
       console.error('Login error:', error);
       const errorMessage = error instanceof Error ? error.message : 'Login failed';
@@ -172,7 +179,7 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
     try {
       console.log('Attempting to register user:', { username: userData.username, email: userData.email });
       
-      const response = await fetch('/api/auth/register', {
+      const response = await fetch('/api/auth/signup', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -181,6 +188,7 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
           username: userData.username,
           email: userData.email,
           password: userData.password,
+          role: userData.role,
         }),
       });
 
@@ -191,7 +199,14 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
       console.log('Registration successful:', data);
       
       localStorage.setItem('auth_token', data.access_token);
-      setUser({ ...data.user, role: userData.role });
+      setUser({ 
+        id: data.userId, 
+        username: data.username, 
+        email: data.email, 
+        role: data.role, 
+        created_at: new Date().toISOString(), 
+        updated_at: new Date().toISOString() 
+      });
     } catch (error) {
       console.error('Registration error:', error);
       const errorMessage = error instanceof Error ? error.message : 'Registration failed';

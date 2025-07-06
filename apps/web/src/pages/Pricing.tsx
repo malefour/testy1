@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { Check, X, ArrowRight, ChevronDown, ChevronUp } from 'lucide-react';
+import { Check, X, ArrowRight } from 'lucide-react';
+import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from '../components/ui/accordion';
 
 const Pricing = () => {
   const [openItems, setOpenItems] = useState<number[]>([]);
@@ -315,39 +316,14 @@ const Pricing = () => {
               <h2 className="font-inter font-bold text-2xl text-navy-900 mb-8 pb-4 border-b-2 border-teal-600">
                 {category.category}
               </h2>
-              
-              <div className="space-y-4">
-                {category.questions.map((item, itemIndex) => {
-                  const globalIndex = categoryIndex * 100 + itemIndex;
-                  const isOpen = openItems.includes(globalIndex);
-                  
-                  return (
-                    <div key={itemIndex} className="border border-gray-200 rounded-lg overflow-hidden">
-                      <button
-                        onClick={() => toggleItem(globalIndex)}
-                        className="w-full px-6 py-4 text-left bg-gray-50 hover:bg-gray-100 transition-colors flex items-center justify-between"
-                      >
-                        <h3 className="font-inter font-semibold text-lg text-navy-900 pr-4">
-                          {item.question}
-                        </h3>
-                        {isOpen ? (
-                          <ChevronUp className="h-5 w-5 text-gray-500 flex-shrink-0" />
-                        ) : (
-                          <ChevronDown className="h-5 w-5 text-gray-500 flex-shrink-0" />
-                        )}
-                      </button>
-                      
-                      {isOpen && (
-                        <div className="px-6 py-4 bg-white">
-                          <p className="font-roboto text-gray-700 leading-relaxed">
-                            {item.answer}
-                          </p>
-                        </div>
-                      )}
-                    </div>
-                  );
-                })}
-              </div>
+              <Accordion type="single" collapsible className="w-full">
+                {category.questions.map((item, itemIndex) => (
+                  <AccordionItem key={itemIndex} value={`item-${categoryIndex}-${itemIndex}`}>
+                    <AccordionTrigger>{item.question}</AccordionTrigger>
+                    <AccordionContent>{item.answer}</AccordionContent>
+                  </AccordionItem>
+                ))}
+              </Accordion>
             </div>
           ))}
         </div>
