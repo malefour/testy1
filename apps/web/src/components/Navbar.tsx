@@ -8,7 +8,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { useAuth } from '../contexts/AuthContext';
 
 const menuItems = [
-    { name: 'How It Works', href: '/how-it-works' },
+    { name: 'Function', href: '/how-it-works' },
     { name: 'Pricing', href: '/pricing' },
     { name: 'Fans', href: '/for-fans' },
     { name: 'Organizers', href: '/for-organizers' },
@@ -89,7 +89,7 @@ const Navbar = () => {
                                             "hover:bg-accent/10 hover:shadow-md hover:ring-1 hover:ring-accent/20"
                                         )}
                                     >
-                                        <span>How It Works</span>
+                                        <span>Function</span>
                                     </Link>
                                 </li>
                                 {/* Features Dropdown */}

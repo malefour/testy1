@@ -1,21 +1,38 @@
-export class RegisterDto {
+import { IsString, IsNotEmpty, IsEmail, MinLength, IsOptional } from 'class-validator';
+
+export class SignupDto {
+  @IsString()
+  @IsNotEmpty()
   username!: string;
-  password!: string;
+
+  @IsEmail()
   email!: string;
+
+  @IsString()
+  @MinLength(4)
+  password!: string;
+
+  @IsOptional()
+  @IsString()
+  role?: 'organiser' | 'attendee';
 }
 
 export class LoginDto {
+  @IsString()
+  @IsNotEmpty()
   username!: string;
+
+  @IsString()
+  @IsNotEmpty()
   password!: string;
 }
 
 export class AuthResponseDto {
-  access_token!: string;
-  user!: {
-    id: number;
-    username: string;
-    email: string;
-  };
+  userId!: string;
+  username!: string;
+  email!: string;
+  role!: string;
+  token!: string;
 }
 
 export class UserResponseDto {

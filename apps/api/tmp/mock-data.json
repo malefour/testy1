@@ -1,0 +1,57 @@
+{
+  "users": [
+    {
+      "username": "testuser",
+      "email": "test@example.com",
+      "password": "password123",
+      "role": "attendee",
+      "id": "u0svd85ca6e5npsrufhzhi",
+      "createdAt": "2025-07-05T23:09:59.426Z"
+    },
+    {
+      "username": "organizer1",
+      "email": "organizer@example.com",
+      "password": "password123",
+      "role": "organiser",
+      "id": "zh8hz13u0rl1pbfljystzq",
+      "createdAt": "2025-07-05T23:11:43.205Z"
+    }
+  ],
+  "events": [
+    {
+      "name": "Summer Music Festival",
+      "description": "An amazing summer music festival",
+      "venue": "Central Park",
+      "datetime": "2024-08-15T18:00:00Z",
+      "price": 50,
+      "supply": 100,
+      "organiserId": "zh8hz13u0rl1pbfljystzq",
+      "status": "active",
+      "id": "f23y4zdab2l0jqh4k72etqm",
+      "sold": 1,
+      "createdAt": "2025-07-05T23:12:44.472Z"
+    }
+  ],
+  "tickets": [
+    {
+      "ticketId": "TICKET_1751757221854_2Q43YR",
+      "nftId": "NFT_1751757221854_AWSSAS",
+      "eventId": "f23y4zdab2l0jqh4k72etqm",
+      "userId": "u0svd85ca6e5npsrufhzhi",
+      "status": "used",
+      "qrPath": "/Users/luca_s-a/Documents/GitHub Local/openticket/apps/api/tmp/qr/TICKET_1751757221854_2Q43YR.png",
+      "id": "7mqgvbn5t87e1ojsvaml8",
+      "purchasedAt": "2025-07-05T23:13:41.981Z",
+      "usedAt": "2025-07-05T23:14:20.613Z"
+    }
+  ],
+  "payments": [
+    {
+      "ticketId": "TICKET_1751757221854_2Q43YR",
+      "amount": 50,
+      "status": "completed",
+      "id": "63dbahxcpxy118vgol4slsc",
+      "createdAt": "2025-07-05T23:13:41.981Z"
+    }
+  ]
+}

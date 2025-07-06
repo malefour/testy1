@@ -1,110 +1,66 @@
-import { Injectable, UnauthorizedException, ConflictException } from '@nestjs/common';
-import { JwtService } from '@nestjs/jwt';
-import * as bcrypt from 'bcrypt';
-import { DatabaseService, User } from '../../database/database.service';
-import { RegisterDto, LoginDto, AuthResponseDto, UserResponseDto } from './dto/auth.dto';
+import { Injectable, BadRequestException, UnauthorizedException } from '@nestjs/common';
+import { MockService } from '../mock/mock.service';
+import { SignupDto, LoginDto, AuthResponseDto } from './dto/auth.dto';
+
+// Simple mock JWT (not secure, for local dev only)
+function createMockJwt(payload: any): string {
+  return Buffer.from(JSON.stringify(payload)).toString('base64') + '.mocktoken';
+}
+
+function verifyMockJwt(token: string): any | null {
+  if (!token.endsWith('.mocktoken')) return null;
+  try {
+    const payload = Buffer.from(token.replace('.mocktoken', ''), 'base64').toString('utf8');
+    return JSON.parse(payload);
+  } catch {
+    return null;
+  }
+}
 
 @Injectable()
 export class AuthService {
-  constructor(
-    private readonly databaseService: DatabaseService,
-    private readonly jwtService: JwtService,
-  ) {}
+  constructor(private readonly mockService: MockService) {}
 
-  async register(registerDto: RegisterDto): Promise<AuthResponseDto> {
-    const { username, password, email } = registerDto;
-
-    // Check if user already exists
-    const existingUser = await this.databaseService.getUserByUsername(username);
-    if (existingUser) {
-      throw new ConflictException('Username already exists');
+  signup(dto: SignupDto): AuthResponseDto {
+    // Check for existing user
+    if (this.mockService.findUserByUsername(dto.username)) {
+      throw new BadRequestException('Username already exists');
     }
-
-    const existingEmail = await this.databaseService.getUserByEmail(email);
-    if (existingEmail) {
-      throw new ConflictException('Email already exists');
+    if (this.mockService.findUserByEmail(dto.email)) {
+      throw new BadRequestException('Email already exists');
     }
-
-    // Hash password
-    const saltRounds = 10;
-    const hashedPassword = await bcrypt.hash(password, saltRounds);
-
     // Create user
-    const user = await this.databaseService.createUser(username, hashedPassword, email);
-    if (!user) {
-      throw new Error('Failed to create user');
-    }
-
-    // Generate JWT token
-    const payload = { username: user.username, sub: user.id };
-    const access_token = this.jwtService.sign(payload);
-
-    return {
-      access_token,
-      user: {
-        id: user.id,
-        username: user.username,
-        email: user.email,
-      },
-    };
+    const user = this.mockService.createUser({
+      username: dto.username,
+      email: dto.email,
+      password: dto.password, // In real app, hash this
+      role: dto.role || 'attendee',
+    });
+    // Return mock JWT
+    return this.buildAuthResponse(user);
   }
 
-  async login(loginDto: LoginDto): Promise<AuthResponseDto> {
-    const { username, password } = loginDto;
-
-    // Find user
-    const user = await this.databaseService.getUserByUsername(username);
-    if (!user) {
+  login(dto: LoginDto): AuthResponseDto {
+    const user = this.mockService.findUserByUsername(dto.username);
+    if (!user || user.password !== dto.password) {
       throw new UnauthorizedException('Invalid credentials');
     }
-
-    // Verify password
-    const isPasswordValid = await bcrypt.compare(password, user.password);
-    if (!isPasswordValid) {
-      throw new UnauthorizedException('Invalid credentials');
-    }
-
-    // Generate JWT token
-    const payload = { username: user.username, sub: user.id };
-    const access_token = this.jwtService.sign(payload);
-
-    return {
-      access_token,
-      user: {
-        id: user.id,
-        username: user.username,
-        email: user.email,
-      },
-    };
+    return this.buildAuthResponse(user);
   }
 
-  async validateUser(userId: number): Promise<UserResponseDto | null> {
-    const user = await this.databaseService.getUserById(userId);
-    if (!user) {
-      return null;
-    }
-
-    return {
-      id: user.id,
-      username: user.username,
-      email: user.email,
-      created_at: user.created_at,
-      updated_at: user.updated_at,
-    };
+  validateJwt(token: string): any | null {
+    return verifyMockJwt(token);
   }
 
-  async getProfile(userId: number): Promise<UserResponseDto> {
-    const user = await this.databaseService.getUserById(userId);
-    if (!user) {
-      throw new UnauthorizedException('User not found');
-    }
+  validateUser(userId: string): any | null {
+    return this.mockService.findUserById(userId);
+  }
 
+  private buildAuthResponse(user: any): AuthResponseDto {
+    const payload = { userId: user.id, username: user.username, email: user.email, role: user.role };
     return {
-      id: user.id,
-      username: user.username,
-      email: user.email,
-      created_at: user.created_at,
-      updated_at: user.updated_at,
+      ...payload,
+      token: createMockJwt(payload),
     };
   }
 } 

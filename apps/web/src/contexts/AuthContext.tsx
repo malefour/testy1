@@ -83,15 +83,20 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
   };
 
   const handleApiResponse = async (response: Response) => {
+    console.log('handleApiResponse called with status:', response.status);
+    console.log('Response URL:', response.url);
+    
     if (!response.ok) {
       let errorMessage = 'Request failed';
       
       // Check if response has content
       const contentType = response.headers.get('content-type');
+      console.log('Error response content-type:', contentType);
       
       if (contentType && contentType.includes('application/json')) {
         try {
           const errorData = await response.json();
+          console.log('Error response JSON:', errorData);
           errorMessage = errorData.message || errorMessage;
         } catch (jsonError) {
           console.error('Failed to parse error JSON:', jsonError);
@@ -99,6 +104,7 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
         }
       } else {
         // Response is not JSON, use status text
+        console.log('Error response status text:', response.statusText);
         errorMessage = response.statusText || `HTTP ${response.status}`;
       }
       
@@ -107,9 +113,13 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
 
     // Check if response has content for successful responses
     const contentType = response.headers.get('content-type');
+    console.log('Success response content-type:', contentType);
+    
     if (contentType && contentType.includes('application/json')) {
       try {
-        return await response.json();
+        const data = await response.json();
+        console.log('Success response JSON:', data);
+        return data;
       } catch (jsonError) {
         console.error('Failed to parse success JSON:', jsonError);
         throw new Error('Invalid response format');
@@ -124,6 +134,8 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
     setError(null);
 
     try {
+      console.log('Attempting to login user:', { username: credentials.username });
+      
       const response = await fetch('/api/auth/login', {
         method: 'POST',
         headers: {
@@ -135,10 +147,16 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
         }),
       });
 
+      console.log('Login response status:', response.status);
+      console.log('Login response headers:', Object.fromEntries(response.headers.entries()));
+
       const data = await handleApiResponse(response);
+      console.log('Login successful:', data);
+      
       localStorage.setItem('auth_token', data.access_token);
       setUser({ ...data.user, role: credentials.role });
     } catch (error) {
+      console.error('Login error:', error);
       const errorMessage = error instanceof Error ? error.message : 'Login failed';
       setError(errorMessage);
       throw error;
@@ -152,6 +170,8 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
     setError(null);
 
     try {
+      console.log('Attempting to register user:', { username: userData.username, email: userData.email });
+      
       const response = await fetch('/api/auth/register', {
         method: 'POST',
         headers: {
@@ -164,10 +184,16 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
         }),
       });
 
+      console.log('Registration response status:', response.status);
+      console.log('Registration response headers:', Object.fromEntries(response.headers.entries()));
+
       const data = await handleApiResponse(response);
+      console.log('Registration successful:', data);
+      
       localStorage.setItem('auth_token', data.access_token);
       setUser({ ...data.user, role: userData.role });
     } catch (error) {
+      console.error('Registration error:', error);
       const errorMessage = error instanceof Error ? error.message : 'Registration failed';
       setError(errorMessage);
       throw error;
