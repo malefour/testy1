@@ -4,6 +4,7 @@ import type { ComponentProps, ReactNode } from 'react';
 import { motion, useReducedMotion } from 'framer-motion';
 import { FacebookIcon, FrameIcon, InstagramIcon, LinkedinIcon, YoutubeIcon, Twitter, Github, Linkedin, Ticket } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { ThemeToggle } from './ui/theme-toggle';
 
 interface FooterLink {
 	title: string;
@@ -69,6 +70,7 @@ export function Footer() {
 							<Ticket className="h-5 w-5 text-white" />
 						</div>
 						<span className="text-heading-3 text-primary">OpenTicket</span>
+						<ThemeToggle />
 					</Link>
 					<p className="text-body text-secondary mb-6 leading-relaxed">
 						Ticketing. Owned, fair, and fraud-proof. Built on Solana for transparent, scalable event experiences.

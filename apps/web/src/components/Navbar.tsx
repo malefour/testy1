@@ -3,7 +3,6 @@ import { Link, useLocation } from 'react-router-dom';
 import { Menu, X, User, LogOut, Settings } from 'lucide-react';
 import { Button } from './ui/button';
 import { cn } from '@openticket/ui';
-import { ThemeToggle } from './ui/theme-toggle';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useAuth } from '../contexts/AuthContext';
 
@@ -87,7 +86,7 @@ const Navbar = () => {
                                     <Link
                                         to="/how-it-works"
                                         className={cn(
-                                            "px-4 py-2 rounded-lg text-sm font-medium transition-all duration-150 text-slate-700 dark:text-slate-300 hover:text-accent hover:bg-accent-light",
+                                            "px-4 py-2 rounded-lg text-sm font-medium transition-all duration-150 text-white hover:text-accent hover:bg-accent-light",
                                             isActive('/how-it-works') && "active"
                                         )}
                                     >
@@ -105,7 +104,7 @@ const Navbar = () => {
                                     }}>
                                     <button
                                         className={cn(
-                                            "px-4 py-2 rounded-lg text-sm font-medium transition-all duration-150 text-slate-700 dark:text-slate-300 hover:text-accent hover:bg-accent-light",
+                                            "px-4 py-2 rounded-lg text-sm font-medium transition-all duration-150 text-white hover:text-accent hover:bg-accent-light",
                                             solutionsOpen && "active"
                                         )}
                                         aria-haspopup="true"
@@ -134,7 +133,7 @@ const Navbar = () => {
                                                     <li key={idx}>
                                                         <Link
                                                             to={item.href}
-                                                            className="block px-4 py-3 text-sm text-secondary hover:text-accent hover:bg-accent-light rounded-lg transition-all duration-150"
+                                                            className="block px-4 py-3 text-sm text-white hover:text-accent hover:bg-accent-light rounded-lg transition-all duration-150"
                                                             onClick={() => setSolutionsOpen(false)}
                                                         >
                                                             {item.name}
@@ -150,7 +149,7 @@ const Navbar = () => {
                                     <Link
                                         to="/pricing"
                                         className={cn(
-                                            "px-4 py-2 rounded-lg text-sm font-medium transition-all duration-150 text-slate-700 dark:text-slate-300 hover:text-accent hover:bg-accent-light",
+                                            "px-4 py-2 rounded-lg text-sm font-medium transition-all duration-150 text-white hover:text-accent hover:bg-accent-light",
                                             isActive('/pricing') && "active"
                                         )}
                                     >
@@ -164,7 +163,7 @@ const Navbar = () => {
                                     <Link
                                         to="/for-fans"
                                         className={cn(
-                                            "px-4 py-2 rounded-lg text-sm font-medium transition-all duration-150 text-slate-700 dark:text-slate-300 hover:text-accent hover:bg-accent-light",
+                                            "px-4 py-2 rounded-lg text-sm font-medium transition-all duration-150 text-white hover:text-accent hover:bg-accent-light",
                                             isActive('/for-fans') && "active"
                                         )}
                                     >
@@ -176,7 +175,7 @@ const Navbar = () => {
                                     <Link
                                         to="/for-organizers"
                                         className={cn(
-                                            "px-4 py-2 rounded-lg text-sm font-medium transition-all duration-150 text-slate-700 dark:text-slate-300 hover:text-accent hover:bg-accent-light",
+                                            "px-4 py-2 rounded-lg text-sm font-medium transition-all duration-150 text-white hover:text-accent hover:bg-accent-light",
                                             isActive('/for-organizers') && "active"
                                         )}
                                     >
@@ -188,7 +187,7 @@ const Navbar = () => {
                                     <Link
                                         to="/investors"
                                         className={cn(
-                                            "px-4 py-2 rounded-lg text-sm font-medium transition-all duration-150 text-slate-700 dark:text-slate-300 hover:text-accent hover:bg-accent-light",
+                                            "px-4 py-2 rounded-lg text-sm font-medium transition-all duration-150 text-white hover:text-accent hover:bg-accent-light",
                                             isActive('/investors') && "active"
                                         )}
                                     >
@@ -200,7 +199,6 @@ const Navbar = () => {
 
                         {/* Right side - Theme toggle and account */}
                         <div className="flex items-center gap-3">
-                            <ThemeToggle />
                             
                             {/* Account Button/Dropdown */}
                             {user ? (
@@ -215,7 +213,7 @@ const Navbar = () => {
                                     <button
                                         className={cn(
                                             "flex items-center space-x-2 px-3 py-2 rounded-lg text-sm font-medium transition-all duration-150",
-                                            "text-slate-700 dark:text-slate-300 hover:text-accent hover:bg-accent-light",
+                                            "text-white hover:text-accent hover:bg-accent-light",
                                             accountOpen && "bg-accent-light text-accent"
                                         )}
                                     >
@@ -235,7 +233,7 @@ const Navbar = () => {
                                                 className="absolute top-full right-0 mt-2 w-56 rounded-xl border border-primary bg-secondary/95 backdrop-blur-xl shadow-xl z-30"
                                             >
                                                 <div className="px-4 py-3 border-b border-primary">
-                                                    <p className="text-sm font-semibold text-primary">{user.username}</p>
+                                                    <p className="text-sm font-semibold text-white">{user.username}</p>
                                                     <p className="text-xs text-muted capitalize flex items-center">
                                                         <span className={cn(
                                                             "w-2 h-2 rounded-full mr-2",
@@ -247,7 +245,7 @@ const Navbar = () => {
                                                 <div className="p-2">
                                                     <Link
                                                         to="/dashboard"
-                                                        className="flex items-center px-3 py-2 text-sm text-slate-700 dark:text-slate-300 hover:text-accent hover:bg-accent-light rounded-lg transition-all duration-150"
+                                                        className="flex items-center px-3 py-2 text-sm text-white hover:text-accent hover:bg-accent-light rounded-lg transition-all duration-150"
                                                         onClick={() => setAccountOpen(false)}
                                                     >
                                                         <Settings className="h-4 w-4 mr-3" />
@@ -255,7 +253,7 @@ const Navbar = () => {
                                                     </Link>
                                                     <button
                                                         onClick={handleLogout}
-                                                        className="w-full flex items-center px-3 py-2 text-sm text-slate-700 dark:text-slate-300 hover:text-red-600 dark:hover:text-red-400 hover:bg-red-50 dark:hover:bg-red-950/20 rounded-lg transition-all duration-150"
+                                                        className="w-full flex items-center px-3 py-2 text-sm text-primary dark:text-slate-300 hover:text-red-600 dark:hover:text-red-400 hover:bg-red-50 dark:hover:bg-red-950/20 rounded-lg transition-all duration-150"
                                                     >
                                                         <LogOut className="h-4 w-4 mr-3" />
                                                         Sign Out

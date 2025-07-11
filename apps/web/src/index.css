@@ -1,18 +1,18 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap');
 
 @layer base {
   :root {
     /* Light Mode Design Tokens */
     --color-bg: #F9FAFC;
     --color-bg-secondary: #FFFFFF;
-    --color-bg-tertiary: #F1F3F5;
-    --color-text: #111827;
-    --color-text-secondary: #374151;
-    --color-text-muted: #6B7280;
+    --color-bg-tertiary: #F5F6FA; /* slightly lighter for more contrast */
+    --color-text: #F9FAFB;
+    --color-text-secondary: #E5E7EB; /* lighter for better contrast */
+    --color-text-muted: #BFC5CE;    /* lighter for better contrast */
     --color-accent: #2EC4B6;
     --color-accent-hover: #26A69A;
     --color-accent-light: #E6FFFA;
@@ -45,11 +45,11 @@
   [data-theme="dark"] {
     /* Dark Mode Design Tokens */
     --color-bg: #0D1117;
-    --color-bg-secondary: #161B22;
-    --color-bg-tertiary: #21262D;
-    --color-text: #F9FAFB;
-    --color-text-secondary: #D1D5DB;
-    --color-text-muted: #9CA3AF;
+    --color-bg-secondary: #181C22; /* slightly darker for more contrast */
+    --color-bg-tertiary: #232832;  /* slightly darker for more contrast */
+    --color-text: #111827;
+    --color-text-secondary: #374151; /* darker for better contrast */
+    --color-text-muted: #6B7280;    /* darker for better contrast */
     --color-accent: #2EC4B6;
     --color-accent-hover: #26A69A;
     --color-accent-light: rgba(46, 196, 182, 0.1);
@@ -72,9 +72,9 @@
       --color-bg: #0D1117;
       --color-bg-secondary: #161B22;
       --color-bg-tertiary: #21262D;
-      --color-text: #F9FAFB;
-      --color-text-secondary: #D1D5DB;
-      --color-text-muted: #9CA3AF;
+      --color-text: #111827;
+      --color-text-secondary: #374151;
+      --color-text-muted: #6B7280;
       --color-accent: #2EC4B6;
       --color-accent-hover: #26A69A;
       --color-accent-light: rgba(46, 196, 182, 0.1);
@@ -115,11 +115,7 @@
     font-weight: 700;
     line-height: 1.1;
     letter-spacing: -0.02em;
-    color: #111827; /* Ensure dark text in light mode */
-  }
-
-  .dark .text-display {
-    color: #F9FAFB; /* Ensure light text in dark mode */
+    color: var(--color-text);
   }
 
   .text-heading-1 {
@@ -127,33 +123,21 @@
     font-weight: 600;
     line-height: 1.2;
     letter-spacing: -0.01em;
-    color: #111827;
-  }
-
-  .dark .text-heading-1 {
-    color: #F9FAFB;
+    color: var(--color-text);
   }
 
   .text-heading-2 {
     font-size: 2rem;
     font-weight: 600;
     line-height: 1.3;
-    color: #111827;
-  }
-
-  .dark .text-heading-2 {
-    color: #F9FAFB;
+    color: var(--color-text);
   }
 
   .text-heading-3 {
     font-size: 1.5rem;
     font-weight: 600;
     line-height: 1.4;
-    color: #111827;
-  }
-
-  .dark .text-heading-3 {
-    color: #F9FAFB;
+    color: var(--color-text);
   }
 
   .text-body-lg {
@@ -350,24 +334,24 @@
 
   /* High contrast text utilities */
   .text-primary { 
-    color: #111827;
+    color: var(--color-text);
   }
-  .dark .text-primary { 
-    color: #F9FAFB; 
+  [data-theme="dark"] .text-primary { 
+    color: var(--color-text);
   }
   
   .text-secondary { 
-    color: #374151;
+    color: var(--color-text-secondary);
   }
-  .dark .text-secondary { 
-    color: #D1D5DB; 
+  [data-theme="dark"] .text-secondary { 
+    color: var(--color-text-secondary);
   }
   
   .text-muted { 
-    color: #6B7280;
+    color: var(--color-text-muted);
   }
-  .dark .text-muted { 
-    color: #9CA3AF; 
+  [data-theme="dark"] .text-muted { 
+    color: var(--color-text-muted);
   }
   
   .text-accent { 
@@ -385,24 +369,24 @@
   
   /* High contrast utilities for accessibility */
   .text-high-contrast { 
-    color: #111827;
+    color: #F9FAFB;
   }
-  .dark .text-high-contrast { 
-    color: #F9FAFB; 
+  [data-theme="dark"] .text-high-contrast { 
+    color: #111827; 
   }
   
   .text-medium-contrast { 
-    color: #374151;
+    color: #E5E7EB;
   }
-  .dark .text-medium-contrast { 
-    color: #D1D5DB; 
+  [data-theme="dark"] .text-medium-contrast { 
+    color: #374151; 
   }
   
   .text-low-contrast { 
-    color: #6B7280;
+    color: #BFC5CE;
   }
-  .dark .text-low-contrast { 
-    color: #9CA3AF; 
+  [data-theme="dark"] .text-low-contrast { 
+    color: #6B7280; 
   }
 
   .border-primary { border-color: var(--color-border); }

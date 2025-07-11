@@ -15,11 +15,11 @@ const Home = () => {
       <section className="relative bg-gradient-to-br from-primary to-tertiary pt-24 pb-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className={`text-center transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-            <h1 className="text-display text-slate-900 dark:text-white mb-6 leading-tight animate-slide-up">
+            <h1 className="text-display text-primary mb-6 leading-tight animate-slide-up">
             A ticketing platform<br />
               <span className="text-accent">For fans, not bots.</span>
             </h1>
-            <p className="text-body-lg text-slate-600 dark:text-slate-300 mb-8 max-w-3xl mx-auto leading-relaxed animate-stagger-1">
+            <p className="text-body-lg text-muted mb-8 max-w-3xl mx-auto leading-relaxed animate-stagger-1">
             Transparent ticket sales with bespoke resale limits and fraud prevention. <br /> All without sacrificing user experience.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center animate-stagger-2">
@@ -480,7 +480,7 @@ const Home = () => {
             Join the future of event ticketing with transparent pricing, anti-scalping controls, and fan ownership.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button className="bg-secondary text-primary hover:bg-tertiary px-8 py-4 rounded-lg font-medium text-lg transition-all duration-300 transform hover:scale-105 shadow-lg">
+                          <button className="bg-secondary text-white hover:bg-tertiary px-8 py-4 rounded-lg font-medium text-lg transition-all duration-300 transform hover:scale-105 shadow-lg">
               Request Demo
             </button>
             <Link 
