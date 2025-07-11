@@ -87,7 +87,7 @@ const Navbar = () => {
                                     <Link
                                         to="/how-it-works"
                                         className={cn(
-                                            "nav-link",
+                                            "px-4 py-2 rounded-lg text-sm font-medium transition-all duration-150 text-slate-700 dark:text-slate-300 hover:text-accent hover:bg-accent-light",
                                             isActive('/how-it-works') && "active"
                                         )}
                                     >
@@ -105,7 +105,7 @@ const Navbar = () => {
                                     }}>
                                     <button
                                         className={cn(
-                                            "nav-link",
+                                            "px-4 py-2 rounded-lg text-sm font-medium transition-all duration-150 text-slate-700 dark:text-slate-300 hover:text-accent hover:bg-accent-light",
                                             solutionsOpen && "active"
                                         )}
                                         aria-haspopup="true"
@@ -150,7 +150,7 @@ const Navbar = () => {
                                     <Link
                                         to="/pricing"
                                         className={cn(
-                                            "nav-link",
+                                            "px-4 py-2 rounded-lg text-sm font-medium transition-all duration-150 text-slate-700 dark:text-slate-300 hover:text-accent hover:bg-accent-light",
                                             isActive('/pricing') && "active"
                                         )}
                                     >
@@ -164,7 +164,7 @@ const Navbar = () => {
                                     <Link
                                         to="/for-fans"
                                         className={cn(
-                                            "nav-link",
+                                            "px-4 py-2 rounded-lg text-sm font-medium transition-all duration-150 text-slate-700 dark:text-slate-300 hover:text-accent hover:bg-accent-light",
                                             isActive('/for-fans') && "active"
                                         )}
                                     >
@@ -176,7 +176,7 @@ const Navbar = () => {
                                     <Link
                                         to="/for-organizers"
                                         className={cn(
-                                            "nav-link",
+                                            "px-4 py-2 rounded-lg text-sm font-medium transition-all duration-150 text-slate-700 dark:text-slate-300 hover:text-accent hover:bg-accent-light",
                                             isActive('/for-organizers') && "active"
                                         )}
                                     >
@@ -188,7 +188,7 @@ const Navbar = () => {
                                     <Link
                                         to="/investors"
                                         className={cn(
-                                            "nav-link",
+                                            "px-4 py-2 rounded-lg text-sm font-medium transition-all duration-150 text-slate-700 dark:text-slate-300 hover:text-accent hover:bg-accent-light",
                                             isActive('/investors') && "active"
                                         )}
                                     >
@@ -215,7 +215,7 @@ const Navbar = () => {
                                     <button
                                         className={cn(
                                             "flex items-center space-x-2 px-3 py-2 rounded-lg text-sm font-medium transition-all duration-150",
-                                            "text-secondary hover:text-accent hover:bg-accent-light",
+                                            "text-slate-700 dark:text-slate-300 hover:text-accent hover:bg-accent-light",
                                             accountOpen && "bg-accent-light text-accent"
                                         )}
                                     >
@@ -247,7 +247,7 @@ const Navbar = () => {
                                                 <div className="p-2">
                                                     <Link
                                                         to="/dashboard"
-                                                        className="flex items-center px-3 py-2 text-sm text-secondary hover:text-accent hover:bg-accent-light rounded-lg transition-all duration-150"
+                                                        className="flex items-center px-3 py-2 text-sm text-slate-700 dark:text-slate-300 hover:text-accent hover:bg-accent-light rounded-lg transition-all duration-150"
                                                         onClick={() => setAccountOpen(false)}
                                                     >
                                                         <Settings className="h-4 w-4 mr-3" />
@@ -255,7 +255,7 @@ const Navbar = () => {
                                                     </Link>
                                                     <button
                                                         onClick={handleLogout}
-                                                        className="w-full flex items-center px-3 py-2 text-sm text-secondary hover:text-error hover:bg-red-50 rounded-lg transition-all duration-150"
+                                                        className="w-full flex items-center px-3 py-2 text-sm text-slate-700 dark:text-slate-300 hover:text-red-600 dark:hover:text-red-400 hover:bg-red-50 dark:hover:bg-red-950/20 rounded-lg transition-all duration-150"
                                                     >
                                                         <LogOut className="h-4 w-4 mr-3" />
                                                         Sign Out

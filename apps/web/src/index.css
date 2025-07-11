@@ -10,14 +10,14 @@
     --color-bg: #F9FAFC;
     --color-bg-secondary: #FFFFFF;
     --color-bg-tertiary: #F1F3F5;
-    --color-text: #1A1F36;
-    --color-text-secondary: #4A5568;
-    --color-text-muted: #718096;
+    --color-text: #111827;
+    --color-text-secondary: #374151;
+    --color-text-muted: #6B7280;
     --color-accent: #2EC4B6;
     --color-accent-hover: #26A69A;
     --color-accent-light: #E6FFFA;
-    --color-border: #E2E8F0;
-    --color-border-light: #F1F3F5;
+    --color-border: #D1D5DB;
+    --color-border-light: #E5E7EB;
     --color-error: #FF6B6B;
     --color-success: #48BB78;
     --color-warning: #ED8936;
@@ -47,14 +47,14 @@
     --color-bg: #0D1117;
     --color-bg-secondary: #161B22;
     --color-bg-tertiary: #21262D;
-    --color-text: #F1F3F5;
-    --color-text-secondary: #C9D1D9;
-    --color-text-muted: #8B949E;
+    --color-text: #F9FAFB;
+    --color-text-secondary: #D1D5DB;
+    --color-text-muted: #9CA3AF;
     --color-accent: #2EC4B6;
     --color-accent-hover: #26A69A;
     --color-accent-light: rgba(46, 196, 182, 0.1);
-    --color-border: #30363D;
-    --color-border-light: #21262D;
+    --color-border: #374151;
+    --color-border-light: #2D3748;
     --color-error: #FF6B6B;
     --color-success: #48BB78;
     --color-warning: #ED8936;
@@ -66,20 +66,20 @@
     --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.5), 0 10px 10px -5px rgba(0, 0, 0, 0.4);
   }
 
-  /* Auto dark mode based on system preference */
+  /* Auto dark mode based on system preference - only when no explicit theme is set */
   @media (prefers-color-scheme: dark) {
-    :root:not([data-theme]) {
+    :root:not([data-theme="light"]):not([data-theme="dark"]) {
       --color-bg: #0D1117;
       --color-bg-secondary: #161B22;
       --color-bg-tertiary: #21262D;
-      --color-text: #F1F3F5;
-      --color-text-secondary: #C9D1D9;
-      --color-text-muted: #8B949E;
+      --color-text: #F9FAFB;
+      --color-text-secondary: #D1D5DB;
+      --color-text-muted: #9CA3AF;
       --color-accent: #2EC4B6;
       --color-accent-hover: #26A69A;
       --color-accent-light: rgba(46, 196, 182, 0.1);
-      --color-border: #30363D;
-      --color-border-light: #21262D;
+      --color-border: #374151;
+      --color-border-light: #2D3748;
       --color-error: #FF6B6B;
       --color-success: #48BB78;
       --color-warning: #ED8936;
@@ -213,7 +213,7 @@
 
   .btn-ghost {
     background-color: transparent;
-    color: var(--color-text-secondary);
+    color: var(--color-text);
     padding: 0.75rem 1.5rem;
   }
 
@@ -250,6 +250,11 @@
     border-color: var(--color-accent);
     box-shadow: var(--shadow-lg);
   }
+  
+  /* Ensure cards always have visible borders */
+  .card-bordered {
+    border: 1px solid var(--color-border);
+  }
 
   /* Form Elements */
   .input {
@@ -285,7 +290,7 @@
 
   /* Navigation */
   .nav-link {
-    color: var(--color-text-secondary);
+    color: var(--color-text);
     text-decoration: none;
     padding: 0.5rem 1rem;
     border-radius: var(--radius-sm);
@@ -318,6 +323,11 @@
   .text-error { color: var(--color-error); }
   .text-success { color: var(--color-success); }
   .text-warning { color: var(--color-warning); }
+  
+  /* High contrast utilities for accessibility */
+  .text-high-contrast { color: var(--color-text); }
+  .text-medium-contrast { color: var(--color-text-secondary); }
+  .text-low-contrast { color: var(--color-text-muted); }
 
   .border-primary { border-color: var(--color-border); }
   .border-light { border-color: var(--color-border-light); }
